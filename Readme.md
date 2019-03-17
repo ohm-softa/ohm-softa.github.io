@@ -60,7 +60,7 @@ The class will be taught in German, the materials are mostly in English.
 
 > No class and assignments on April 18 (Maundy Thursday/Gründonnerstag).
 
-- **Mixin, pt. 2; Generics, pt. 2 (April 25, [slides](/05s-generics-2/), [lecture notes](/05ln-generics-2/), [assignments](https://github.com/ohm-softa/05-generic-bounds))**
+- **Mixin, pt. 2; Generics, pt. 2 (April 25, [slides](/05s-generics-2/), [lecture notes](/05ln-generics-2/), [assignments](https://github.com/ohm-softa/05-generics-bounds))**
 	
 	We'll review Mixins and see how to use generics to make them stateful.
 	Generics and inheritance need special attention, and will lead us to bounds and wildcards.

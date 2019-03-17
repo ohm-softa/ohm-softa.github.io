@@ -115,3 +115,7 @@ _Einführung durch Artikelsammlung in die einzelnen Themen und Anwendung mit Üb
 - Lambda und Methodenreferenzen (insb. Konstruktor)
 - Erweiterte Funktionen: `collect`, `groupingBy`
 - Übung evtl. mit Hibernate um Streams auf einer Datenbank anzuwenden? Ggf. mit Herr Höfig bzw. Herr Krüger absprechen ob die Studenten noch JDBC machen in den Übungen?
+
+
+- Generics raus? Oder kompakter?
+- DI?
