@@ -106,4 +106,4 @@ The class will be taught in German, the materials are mostly in English.
 	Learn about the classes and interfaces used for Java's functional parts, and the more sophisticated stream reduction using `reduce` and `collect`.
 
 
-_Subscribe to [https://github.com/hsro-inf-prg3/hsro-inf-prg3.github.io](https://github.com/hsro-inf-prg3) repository to follow updates._
+_Subscribe to [https://github.com/ohm-softa/ohm-softa.github.io](https://github.com/ohm-softa/ohm-softa.github.io) repository to follow updates._
