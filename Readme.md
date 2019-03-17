@@ -40,44 +40,44 @@ The class will be taught in German, the materials are mostly in English.
 
 
 ## Syllabus
-- **Introduction (March 21, [slides](/01s-intro/), [assignments](https://github.com/hsro-inf-prg3/01-tools/))**
+- **Introduction (March 21, [slides](/01s-intro/), [assignments](https://github.com/ohm-softa/01-tools/))**
 	
 	With a few examples we dig right into the necessary tools of a (Java) software engineer: Git, IntelliJ, and of course: [Google](https://www.google.com), [SO](https://www.stackoverflow.com) and the [Java docs](http://docs.oracle.com/javase/8/docs/).
 
-- **Classes and Interfaces revisited (March 28, [slides](/02s-classes-interfaces/), [lecture notes](/02ln-classes-interfaces/), [assignments](https://github.com/hsro-inf-prg3/02-classes-interfaces/))**
+- **Classes and Interfaces revisited (March 28, [slides](/02s-classes-interfaces/), [lecture notes](/02ln-classes-interfaces/), [assignments](https://github.com/ohm-softa/02-classes-interfaces/))**
 	
 	We look at different types of classes (inner, anonymous, local, static), when to use them, and which visibility for which purpose.
 	Also: `@FunctionalInterface` and lambda expressions.
 
-- **Inheritance revisited (April 4, [slides](/03s-inheritance/), [lecture notes](/03ln-inheritance/), [assignments](https://github.com/hsro-inf-prg3/03-inheritance))**
+- **Inheritance revisited (April 4, [slides](/03s-inheritance/), [lecture notes](/03ln-inheritance/), [assignments](https://github.com/ohm-softa/03-inheritance))**
 	
 	We talk about abstract and final classes, (pure) virtual functions and defaults.
 	Also, when (and how) to use abstract base classes, and how the Decorator pattern can be used to add functionality to existing classes.
 
-- **Mixins, pt. 1; Generics, pt. 1 (April 11, [slides](/04s-generics-1/), [lecture notes](/04ln-generics-1/), [assignments](https://github.com/hsro-inf-prg3/04-generics))**
+- **Mixins, pt. 1; Generics, pt. 1 (April 11, [slides](/04s-generics-1/), [lecture notes](/04ln-generics-1/), [assignments](https://github.com/ohm-softa/04-generics))**
 	
 	After a short digression to Mixins, we dig into the details of how generics work in Java, and how to apply them to data structures and algorithms.
 
 > No class and assignments on April 18 (Maundy Thursday/Gründonnerstag).
 
-- **Mixin, pt. 2; Generics, pt. 2 (April 25, [slides](/05s-generics-2/), [lecture notes](/05ln-generics-2/), [assignments](https://github.com/hsro-inf-prg3/05-generic-bounds))**
+- **Mixin, pt. 2; Generics, pt. 2 (April 25, [slides](/05s-generics-2/), [lecture notes](/05ln-generics-2/), [assignments](https://github.com/ohm-softa/05-generic-bounds))**
 	
 	We'll review Mixins and see how to use generics to make them stateful.
 	Generics and inheritance need special attention, and will lead us to bounds and wildcards.
 
-- **Reflection and Annotations (May 2, [slides](/06s-reflection-annotations/), [lecture notes](/06ln-reflection-annotations/), [assignments](https://github.com/hsro-inf-prg3/06-annotations-reflection))**
+- **Reflection and Annotations (May 2, [slides](/06s-reflection-annotations/), [lecture notes](/06ln-reflection-annotations/), [assignments](https://github.com/ohm-softa/06-annotations-reflection))**
 	
 	Learn how reflection works in Java, and how they enable annotations by using examples of testing ([JUnit5](http://junit.org/junit5/)), serialization ([gson](https://github.com/google/gson)) and networking ([retrofit](https://github.com/square/retrofit)).
 
-- **Design patterns, pt. 1 (May 9, [slides](/07s-iterator-composite-observer/), [lecture notes](/07ln-iterator-composite-observer/), assignments: [JavaFX (recommended)](https://github.com/hsro-inf-prg3/07-composite-observer-jfx) or [Android (advanced)](https://github.com/hsro-inf-prg3/07-composite-observer))**
+- **Design patterns, pt. 1 (May 9, [slides](/07s-iterator-composite-observer/), [lecture notes](/07ln-iterator-composite-observer/), assignments: [JavaFX (recommended)](https://github.com/ohm-softa/07-composite-observer-jfx) or [Android (advanced)](https://github.com/ohm-softa/07-composite-observer))**
 
 	We begin with a few basic patterns: composite, iterator and observer, and use that to dive into Android and MVC/MVVC.
 
-- **Design patterns, pt. 2 (May 16, [slides](/08s-singleton-factory-strategy-command/), [lecture notes](/08ln-singleton-factory-strategy-command/), assignments: [JavaFX](https://github.com/hsro-inf-prg3/08-singleton-factory-strategy-jfx) or [Android](https://github.com/hsro-inf-prg3/08-singleton-factory-strategy-android))**
+- **Design patterns, pt. 2 (May 16, [slides](/08s-singleton-factory-strategy-command/), [lecture notes](/08ln-singleton-factory-strategy-command/), assignments: [JavaFX](https://github.com/ohm-softa/08-singleton-factory-strategy-jfx) or [Android](https://github.com/ohm-softa/08-singleton-factory-strategy-android))**
 
 	We look at more every-day-patterns: singleton, factory, strategy and command.
 
-- **Design patterns, pt. 3 (May 23, [slides](/09s-proxy-adapter-flyweight/), [lecture notes](/09ln-proxy-adapter-flyweight/), assignments: [JavaFX](https://github.com/hsro-inf-prg3/09-adapter-flyweight-jfx), [Android](https://github.com/hsro-inf-prg3/09-adapter-flyweight-android))**
+- **Design patterns, pt. 3 (May 23, [slides](/09s-proxy-adapter-flyweight/), [lecture notes](/09ln-proxy-adapter-flyweight/), assignments: [JavaFX](https://github.com/ohm-softa/09-adapter-flyweight-jfx), [Android](https://github.com/ohm-softa/09-adapter-flyweight-android))**
 	
 	We round up a few more useful patterns: proxy and adapter to make other peoples' modules fit your needs, and flyweight to save on precious memory in (mostly) graphical apps.
 
@@ -95,12 +95,12 @@ The class will be taught in German, the materials are mostly in English.
 
 > _No class and assignments on June 20 (Corpus Christi/Fronleichnam)_
 
-- **Introduction to functional programming (June 27, [slides](/12s-fp1/), [lecture notes](/12ln-fp1/), [assignments](https://github.com/hsro-inf-prg3/12-functional-cli))**
+- **Introduction to functional programming (June 27, [slides](/12s-fp1/), [lecture notes](/12ln-fp1/), [assignments](https://github.com/ohm-softa/12-functional-cli))**
 	
 	Leave your imperative and objected oriented programming comfort zone and follow me down the rabbit hole of functional programming.
 	After some theory, we'll do some basic exercises, including `filter`, `map` and `forEach`.
 
-- **Functional programming in Java (July 4, [slides](/13s-fp2/), [lecture notes](/13ln-fp2/), [assignments](https://github.com/hsro-inf-prg3/13-map-reduce-collect))**
+- **Functional programming in Java (July 4, [slides](/13s-fp2/), [lecture notes](/13ln-fp2/), [assignments](https://github.com/ohm-softa/13-map-reduce-collect))**
 
 	We'll talk about the specifics (and limits) of functional programming in Java.
 	Learn about the classes and interfaces used for Java's functional parts, and the more sophisticated stream reduction using `reduce` and `collect`.
