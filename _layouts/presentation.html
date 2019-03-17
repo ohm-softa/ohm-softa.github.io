@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/pure-min.css">
+  
+    <title>{{ page.title | strip_html }}</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+        margin-bottom: 10px;
+      }
+      li {
+        line-height: 120%;
+        margin-bottom: 15px;
+        height: auto;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .remark-slide-content ul ul { margin-top: .3em; }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code { background: #fefefe !important; border: 1px solid silver; }
+      footer {
+        position: absolute; 
+        bottom: 12px; 
+        left: 20px
+      }
+      footer svg {
+        height: 20px;
+      }
+      pre {tab-size: 3;}
+
+      .container { padding-top: 1px; clear: both;}
+
+      .column:first-of-type { padding-top: 1px; float: left; }
+      .column:last-of-type { padding-top: 1px; float: right; }
+
+      .split-50 .column:first-of-type { width: 45% }
+      .split-50 .column:last-of-type { width: 45% }
+
+      .clearfix { clear: both; }
+
+      img.float-left {
+        float: left;
+        margin-right: 10px;
+      }
+      .w20 { width: 20%; }
+      .w30 { width: 30%; }
+      .w35 { width: 35%; }
+      .w40 { width: 40%; }
+      .w45 { width: 45%; }
+      .w50 { width: 50%; }
+      .w55 { width: 55%; }
+      .w60 { width: 60%; }
+      .w70 { width: 70%; }
+      .w80 { width: 80%; }
+      .w90 { width: 90%; }
+
+      .skip { margin-top: 3em; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+{{ content }}
+    </textarea>
+    <script src="/assets/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        navigation: {scroll: false,},
+        highlightLanguage: 'java',
+        highlightStyle: 'tomorrow',
+        highlightLines: true,
+        highlightSpans: true
+      });
+    </script>
+  </body>
+</html>

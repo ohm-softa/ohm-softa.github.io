@@ -1,0 +1,29 @@
+@startuml
+
+abstract class Component {
+	+abstract operation()
+}
+
+class SomeComponent {
+	+operation()
+}
+
+SomeComponent -left-|> Component
+
+abstract class Decorator {
+	-delegate: Component
+	+Decorator(p: Component)
+	#getDelegate(): Component
+}
+
+Decorator -up-|> Component
+Decorator *-up- Component
+
+class SomeDecorator {
+	+operation()
+	+extraOperation()
+}
+
+SomeDecorator -left-|> Decorator
+
+@enduml

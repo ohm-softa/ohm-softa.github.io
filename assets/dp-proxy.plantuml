@@ -1,0 +1,49 @@
+@startuml
+allow_mixing
+
+'skinparam linetype ortho
+
+actor Client
+
+interface Subject {
+	+ request()
+}
+
+Client -right-> Subject
+
+class RealSubject implements Subject {
+	+ request()
+}
+
+class Proxy implements Subject {
+	- realSubject: RealSubject
+	+ request()
+}
+
+Proxy --> RealSubject
+
+note left of Proxy::request
+	realSubject.request()
+endnote
+
+@enduml
+
+@startuml
+
+actor Client
+
+Client --> aProxy : request()
+activate aProxy
+
+aProxy --> aSubject : request()
+activate aSubject
+
+aSubject --> aProxy : return ...
+deactivate aSubject
+
+aProxy --> Client : return ...
+
+@enduml
+
+
+

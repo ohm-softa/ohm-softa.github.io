@@ -1,0 +1,26 @@
+@startuml
+
+interface Stateful {
+	+ <T> getState(Class clazz, T initial): T
+	+ <T> setState(Class clazz, T state)
+}
+
+class StatefulObject implements Stateful {
+	- states: HashMap<Class, Object>
+	+ final <T> getState(Class clazz, T initial): T
+	+ final <T> setState(Class clazz, T s)
+}
+
+interface Escalatable extends Stateful {
+	+ text(): String
+	+ default escalated(): String
+}
+
+class StatefulMessage extends StatefulObject implements Escalatable {
+	- m: String
+	+ StatefulMessage(String m)
+	+ text(): String
+}
+
+
+@enduml

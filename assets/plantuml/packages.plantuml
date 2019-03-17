@@ -1,0 +1,15 @@
+@startuml Packages
+
+package de.fhro.prg3 {
+    class ClassA {
+
+    }
+
+    package subpackage {
+        class ClassB {
+
+        }
+    }
+}
+
+@enduml

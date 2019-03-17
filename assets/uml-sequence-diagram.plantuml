@@ -1,0 +1,11 @@
+@startuml
+
+Alice --> Bob : please make me a sandwich
+
+Bob --> Alice : no
+
+Alice --> Bob : sudo make me a sandwich
+
+Bob --> Alice : sure, here it is
+
+@enduml

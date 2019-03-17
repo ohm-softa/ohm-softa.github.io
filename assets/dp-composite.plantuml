@@ -1,0 +1,29 @@
+@startuml
+allow_mixing
+
+abstract class Component {
+	+ operation()
+}
+
+agent Client
+
+Client -right-> Component
+
+class BasicLeaf extends Component
+
+class Leaf extends Component {
+	+ operation()
+}
+
+class Composite extends Component {
+	+ operation()
+}
+
+Component --* Composite
+
+note left of Composite::operation
+	for c in components: 
+	  c.operation()
+end note
+
+@enduml

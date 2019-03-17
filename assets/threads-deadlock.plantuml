@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+
+[*] --> threadA
+
+threadA --> lock2 : wants
+
+lock2 --> threadB : taken by
+
+threadB --> lock1 : wants
+
+lock1 --> threadA : taken by
+
+@enduml

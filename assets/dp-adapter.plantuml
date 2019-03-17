@@ -1,0 +1,57 @@
+@startuml
+'class adapter
+allow_mixing
+
+skinparam linetype ortho
+
+actor Client
+
+interface Target {
+	+ adaptedRequest()
+}
+
+class Adaptee {
+	+ specificRequest()
+}
+
+class Adapter extends Adaptee implements Target {
+	+ adaptedRequest()
+}
+
+Client -right-> Target
+
+note right of Adapter::adaptedRequest
+	specificRequest()
+endnote
+
+@enduml
+
+@startuml
+'object adapter
+allow_mixing
+skinparam linetype ortho
+
+actor Client
+
+interface Target {
+	+ adaptedRequest()
+}
+
+class Adaptee {
+	+ specificRequest()
+}
+
+class Adapter implements Target {
+	- adaptee: Adaptee
+	+ adaptedRequest()
+}
+
+Client -right-> Target
+
+Adapter -right-> Adaptee
+
+note left of Adapter::adaptedRequest
+	adaptee.specificRequest()
+endnote
+
+@enduml

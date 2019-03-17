@@ -1,0 +1,29 @@
+@startuml
+allow_mixing
+
+abstract class Observable {
+	- observers: Collection
+	+ addObserver(o: Observer)
+	+ deleteObserver(o: Observer)
+	+ notifyObservers(info: Object)
+}
+
+note left of Observable::notifyObservers
+	for o in obsercers:
+		o.update(this, payload)
+end note
+
+class ConcreteObservable extends Observable
+
+interface Observer {
+	+ update(o: Observable, info: Object)
+}
+
+class ConcreteObserver implements Observer {
+	+ update(o: Observable, info: Object)
+}
+
+Observable .right. Observer
+ConcreteObservable -right- ConcreteObserver
+
+@enduml

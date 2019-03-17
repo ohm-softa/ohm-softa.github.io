@@ -1,0 +1,83 @@
+@startuml
+'modeled as process
+
+OS --> main : java BeanCounter
+activate main
+
+main --> main : b1 = new BeanCounter(...)
+main --> main : b2 = new BeanCounter(...)
+
+main --> b1.run : b1.run()
+deactivate main
+activate b1.run
+
+note right
+	Bureaucrat 1 is starting...
+	Bureaucrat 1 is done!
+endnote
+
+b1.run --> main
+deactivate b1.run
+activate main
+
+main --> b2.run : b2.run()
+deactivate main
+activate b2.run
+
+note right
+	Bureaucrat 2 is starting...
+	Bureaucrat 2 is done!
+endnote
+
+b2.run --> main
+deactivate b2.run
+activate main
+
+main --> main
+note right : "main() done!"
+
+main --> OS
+
+@enduml
+
+
+@startuml
+'modeled with threads
+
+OS --> main : java BeanCounter
+activate main
+
+main --> main : b1 = new BeanCounter(...)
+main --> main : b2 = new BeanCounter(...)
+
+main --> b1 : new Thread(b1).start()
+activate b1
+note right : Bureaucrat 1 is starting...
+b1 --> main
+
+main --> b2 : new Thread(b2).start()
+activate b2
+note right : Bureaucrat 2 is starting...
+b2 --> main
+
+main --> main
+note left : "main() done!"
+deactivate main
+
+
+b1 --> b1 : Arrays.sort(...)
+
+note right of b1: "Bureaucrat 1 is done!"
+
+deactivate b1
+
+b2 --> b2 : Arrays.sort(...)
+
+note right of b2: "Bureaucrat 2 is done!"
+
+deactivate b2
+
+
+main --> OS
+
+@enduml

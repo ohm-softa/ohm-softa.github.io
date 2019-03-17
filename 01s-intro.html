@@ -1,0 +1,150 @@
+---
+layout: presentation
+title: Introduction
+permalink: /01s-intro/
+---
+
+layout: true
+
+<footer>
+	<span class="icon github">
+	<svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+	</svg>
+	</span>
+	<a href="https://github.com/sikoried"><span class="username">sikoried</span></a>
+</footer>
+
+---
+
+# Introduction
+
+- Programmieren 3: mandatory class for CS majors
+- materials
+	- https://hsro-inf-prg3.github.io
+	- Github organization: https://github.com/hsro-inf-prg3 (BIO)
+	- ...in English! &#x263A;
+	- slides, lecture notes, assignments (with Readmes)
+- class: Thursdays, 8a
+- tutorials: 
+	- tutor: [Peter Kurfer](https://github.com/baez90)
+	- Thursdays 11.45a/1.45p/3.30p
+	- sign up [through community](https://www.fh-rosenheim.de/community/inf-community/lehrveranstaltungen/details/?tx_fhalumni_pi1%5Buid%5D=3134#registration)
+
+
+???
+
+https://github.com/gnab/remark/wiki/Formatting
+
+Materialien auf Englisch, Vorlesung aber auf Deutsch.
+Github orga ist closed/BIO--by invitation only
+
+---
+
+# Credits (Leistungsnachweis)
+
+- written exam (90') at the end of the term
+- you may bring one (1) book *with* ISBN number and *without* notes
+- you need to sign up for the exam (OSC)
+- theoretical and coding questions
+
+---
+
+# Reminder
+
+.center[Choose your focus subject by end of October!]
+.center[Schwerpunktwahl bis Ende Oktober!]
+
+---
+
+# Review (what you should know by now!)
+
+## Programmieren 1
+- imperative programming in C
+- constants, variables, expressions, functions, I/O
+- basic data structures (fields, arrays, lists)
+- pointers &#x263A;
+
+## Programmieren 2
+- object-oriented programming (OOP) in Java
+- classes and objects (and references! &#x263A;)
+- interfaces and inheritance
+- errors, exceptions and how to deal with them
+
+---
+
+# Agenda for Programmieren 3
+
+See https://hsro-inf-prg3.github.io/ (Syllabus)
+
+
+---
+
+# Agenda today
+
+0. _Inform:_<br>
+	Your trusted advisors: [Google](https://google.com) -- [SO](https://stackoverflow.com) -- [Java Docs](https://docs.oracle.com/javase/8/docs/) -- [Google Translate](https://translate.google.com/)
+
+1. _Memorize:_<br>
+	The git version control system (https://git-scm.com/)
+
+2. _Automate:_<br>
+	The Gradle build tool (https://gradle.org/)
+
+3. _Organize:_<br>
+	The IntelliJ IDEA (https://www.jetbrains.com/idea/)
+
+4. _(Optional) Collaborate_<br>
+	Practice cross-repository pull requests and learn about _continuous integration_ (https://travis-ci.org/)
+
+???
+
+SO = stackoverflow
+
+---
+
+# Memorize: The git VCS
+
+- [Git](https://git-scm.com) is the _de-facto_ state of the art [version control system](https://en.wikipedia.org/wiki/Version_control).
+- Some of you might remember [CVS (concurrent versions system)](http://savannah.nongnu.org/projects/cvs) or [subversion](https://subversion.apache.org/), geeks might also know of [mercurial](https://www.mercurial-scm.org/).
+- Generally speaking, you should always use a version control system (VCS) when working on code, so you can keep track of changes.
+- Print and laminate: https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
+- For the more visual: http://ndpsoftware.com/git-cheatsheet.html
+- If you run into a mess (and you will): http://justinhileman.info/article/git-pretty/git-pretty.png
+
+---
+
+# Git and feature branches
+
+https://www.atlassian.com/continuous-delivery/continuous-delivery-workflows-with-feature-branching-and-gitflow
+
+![Basic CD Workflow](/assets/CDworkflows_basic2.png)
+
+---
+
+# Automate: The Gradle Build Tool
+
+![GBT](/assets/gradlebuildtool.png)
+.center[https://gradle.org]
+
+- `gradle init --type java-application` to bootstrap a project
+- `./gradlew build` to use the [Gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) to be independent of locally installed Gradle
+- `apply plugin: 'eclipse'` and `./gradlew eclipse` to generate Eclipse project files
+- `apply plugin: 'idea'` and `./gradlew idea` to generate IntelliJ files (note: these are file-based project descriptions, not the new directory based `.idea/*`)
+
+
+---
+
+# IntelliJ
+
+.center[https://www.jetbrains.com/idea/]
+
+---
+
+# Travis CI
+
+- Collaboration means splitting the work
+- Teamwork means working together
+- Use feature branches and automated tests (JUnit)
+- Use automated build and test runner

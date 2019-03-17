@@ -1,0 +1,415 @@
+---
+layout: presentation
+title: "Mixins in C#"
+permalink: /99s-mixins-cs/
+---
+
+layout: true
+
+<footer>
+    <span class="icon github">
+    <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+    </svg>
+    </span>
+    <a href="https://github.com/sikoried"><span class="username">sikoried</span></a>
+</footer>
+
+---
+
+<h1>Mixins in C#</h1>
+
+### Korbinian Riedhammer
+
+---
+
+# Wiederholung: Decorator Pattern
+
+Klassen um Funktionalität erweitern ("dekorieren").
+
+<div>
+	<div style="float: left; width: 45%; height: 100%">
+	    <img alt="decorator pattern" src="../assets/dp-decorator.svg" style="width: 100%">
+	</div>
+	<div style="width: 55%; float: left">
+		<ul>
+			<li>Gemeinsame Basisklasse bzw. Interface</li>
+			<li>Aufrufe an <span class="remark-code remark-code-line">delegate</span> weiterleiten</li>
+			<li>Methoden hinzufügen oder überladen</li>
+			<li>Vorallem für Kaskadierung geeignet</li>
+		</ul>
+	</div>
+</div>
+
+<div style="clear: both"></div>
+
+```java
+FileInputStream fis = new FileInputStream("/objects.gz");
+BufferedInputStream bis = new BufferedInputStream(fis);
+GzipInputStream gis = new GzipInputStream(bis);
+ObjectInputStream ois = new ObjectInputStream(gis);
+SomeObject someObject = (SomeObject) ois.readObject();
+```
+
+---
+
+# Wiederholung: Vererbung und Interfaces
+
+Beispiel:
+
+- Wir können einfache Nachrichten (`Message`) verschicken
+- `EscalatedMessage` hat entsprechend Großbuchstaben (_schreien_).
+- `UnicodeMessage` um Smileys ausgeben zu können.
+
+.center[
+<img src="../assets/mixin-diamond-1.svg">
+]
+
+#### Was nun, wenn eine `UnicodeMessage` auch "eskalierbar" sein soll?
+
+
+---
+
+# Wiederholung: Vererbung und Interfaces
+
+Um die Typhierarchie beizubehalten wird nun ein Interface `IEscalatable` eingeführt, so dass für mehrere Klassen `is-a IEscalatable` gelten kann:
+
+.center[
+<img src="../assets/mixin-diamond-2.svg">
+]
+
+#### Nachteil: Code muss doppelt implementiert werden!
+
+---
+
+# Mixins
+
+In der OOP sind _Mixins_ Klassen, welche 
+
+- in andere Klassen _eingebunden_ werden können, ohne aber die Basisklasse zu sein
+- nur in Kombination mit den Zielklassen sinnvoll sind
+
+In C# können Mixins (weitgehend) durch _extension methods_ realisiert werden.
+
+
+#### Ziel
+
+- **Eine** Implementierung für **alle** passenden Klassen
+- `has-a` bzw. `can-do` anstatt `is-a`
+
+#### Verwandte Themen
+
+- _Aspect Oriented Programming (AOP):_ Funktionalitäten als _Aspekte_
+- _Dependency Inversion_
+
+---
+
+<h1>Mixins in C&num;</h1>
+
+Realisierung durch Erweiterungsmethoden (_extension methods_).
+
+```csharp
+public class Message {
+	public string Text { get; set; }
+}
+public `static class` Mixins {
+	`public static` string Escalated(`this Message self`) {
+  		return self.Text.ToUpper();
+	}
+}
+```
+
+- Statische Methode in statischer Klasse (i.d.R. `public`)
+- Erstes Argument vom Zieltyp mit Modifier `this`
+- Compiler "sammelt" alle Erweiterungsmethoden
+
+```csharp
+Message m = new Message();
+m.Text = "Hello, world";
+
+Console.WriteLine(`m.Escalated()`);        // "HELLO, WORLD"
+Console.WriteLine(`Mixins.Escalated(m)`);  // äquivalent
+```
+
+---
+
+# Zustandsbehaftete Mixins
+
+Die aktuelle Implementierung ist recht übersichtlich -- und zustandslos.
+
+Was ist, wenn man nun "immer weiter" eskalieren möchte, mit immer mehr Ausrufezeichen?
+
+```
+Hallo, Welt
+HALLO, WELT
+HALLO, WELT!
+HALLO, WELT!!
+HALLO, WELT!!!
+```
+
+---
+
+# Zustandsbehaftete Mixins
+
+Verwende `ConditionalWeakTable` als Zustandsspeicher.
+
+Für jeden Aufrufer wird der Zustand gespeichert.
+
+```csharp
+public class Message {
+	public string Text { get; set; }
+}
+
+public static class Mixins {
+	private static readonly ConditionalWeakTable<Message, object> state_ =
+		new ConditionalWeakTable<Message, object>();
+	
+	public static string Escalate(this Message self) {
+		object n;
+
+		// gibts schon einen Zustand für self?
+		if (!state_.TryGetValue(self, out n))
+			n = 0;
+
+		string message = self.Text.ToUpper() + new String('!', (int) n);
+		
+		// neuen Zustand für self abspeichern
+		state_.AddOrUpdate(self, 1 + (int) n);
+		return message;
+	}
+}
+```
+
+---
+
+# Zustandsbehaftete Mixins
+
+Verwende `ConditionalWeakTable` als Zustandsspeicher.
+
+Für jeden Aufrufer wird der Zustand gespeichert.
+
+```csharp
+class Program {
+	static void Main(string[] args) {
+		Message m1 = new Message();
+        Message m2 = new Message();
+        
+        m1.Text = "Mach hin";
+        m2.Text = "Schneller";
+
+        Console.WriteLine(m1.Text);         // "Mach hin"
+        Console.WriteLine(m1.Escalated());  // "MACH HIN"
+        Console.WriteLine(m1.Escalated());  // "MACH HIN!"
+        
+        Console.WriteLine(m2.Text);         // "Schneller"
+        Console.WriteLine(m2.Escalated());  // "SCHNELLER"
+        Console.WriteLine(m2.Escalated());  // "SCHNELLER!"
+	}
+}
+```
+
+---
+
+# Sichtbarkeiten
+
+Da Erweiterungsmethoden nur syntaktischer Zucker sind, gelten die Sichtbarkeiten wie gehabt:
+
+```csharp
+public class Message {
+	public string Text { get; set; }
+	private int id;
+}
+
+public static class Mixins {
+	public static void Debug(this Message self) {
+		self.Text;  // OK
+		self.id;    // `Compilerfehler: not visible!`
+	}
+}
+```
+
+**Daher:** Es ist sinnvoll Erweiterungsmethoden gegen Interfaces zu implementieren, damit
+
+- alle benötigten Attribute eingesehen werden können
+- das Mixin flexibel über das Interface "angeheftet" werden kann
+
+
+---
+
+# Binden und Überschreiben
+
+Erweiterungsmethoden _binden wenn nötig_ aber _überschreiben **nicht**_.
+
+```csharp
+class Message {
+	public string Text { get; set; }
+	public string Escalated() {
+		Text.ToLower();
+	}
+}
+
+static class Mixins {
+	public static string Escalated(this Message self) {
+		self.Text.ToUpper();
+	}
+}
+```
+
+```csharp
+Message m = new Message();
+m.Text = "Hello, world";
+
+Console.WriteLine(m.Escalated());
+Console.WriteLine(Mixins.Escalated(m));
+```
+
+#### Ausgabe?
+
+---
+
+# Binden und Überschreiben
+
+Erweiterungsmethoden _binden wenn nötig_ aber _überschreiben **nicht**_.
+
+```csharp
+class Message {
+	public string Text { get; set; }
+	public string Escalated() {
+		Text.ToLower();
+	}
+}
+
+static class Mixins {
+	public static string Escalated(this Message self) {
+		self.Text.ToUpper();
+	}
+}
+```
+
+```csharp
+Message m = new Message();
+m.Text = "Hello, world";
+
+Console.WriteLine(m.Escalated());
+Console.WriteLine(Mixins.Escalated(m));
+```
+
+```
+hello, world
+HELLO, WORLD
+```
+
+---
+
+# Anheften von Mixins
+
+Implementiere Mixin für Interface (Dependency Inversion!)...
+
+```csharp
+public interface IEscalatable {
+	string Text { get; }
+}
+
+public static class EscalatableMixin {
+	public static string Escalated(this `IEscalatable` self) {
+		return self.Text.ToUpper();
+	}
+}
+```
+
+...und hefte es später an Klassen:
+
+```csharp
+public class EscalatedMessage : Message, IEscalatable {}
+
+public class EscalatableUnicodeMessage : UnicodeMessage, IEscalatable {}
+```
+
+
+---
+
+# Zusammenfassung
+
+- _"Favor composition over inheritance"_
+- _Mixins_ erweitern _bestehende_ Klassen _ohne_ eine verwandschaftliche Beziehung herzustellen
+- Für C# gilt:
+	- Mixins können zu einem gewissen Grad mit _extension methods_ realisiert werden.
+	- Die Einbindung einer `ConditionalWeakTable` erlaubt es instanzspezifische Zustandsinformation zu unterhalten.
+	- Extension methods binden, aber überschreiben nicht; es gelten die spezifizierten Sichtbarkeiten
+- Vergleiche auch: 
+	- Traits in Scala
+	- Mehrfachvererbung in C++ 
+	- Defaultmethoden in Java (ohne Syntaxzucker)
+
+---
+
+# Weiterführende Informationen
+
+#### Dokumentation
+
+- <https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods>
+
+#### Literatur
+
+- Craig, Iain (2007). Object-Oriented Programming Languages: Interpretation. Springer.
+- Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John (1994). Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley.
+
+#### Frameworks/Toolkits:
+
+- https://www.postsharp.net/
+- https://github.com/re-motion/Remix
+
+
+---
+
+# Vorsicht mit autom. Typumwandlung (1)
+
+```csharp
+class Vorsicht {
+	public void Obacht(object o)
+		=> Console.WriteLine("Vorsicht.Obacht: {0}", o.GetType());
+}
+static class VorsichtMixin {
+	public static void Obacht(this Vorsicht self, int i)
+		=> Console.writeLine("VorsichtMixin.Obacht: {0}", i);
+
+
+	static void Main(string[] args) {
+		Vorsicht v = new Vorsicht();
+		v.Obacht(3);
+		// "Vorsicht.Obacht: System.Int32"
+		
+		v.Obacht("Hans");
+		// "Vorsicht.Obacht: System.String"
+	}
+}
+```
+
+**Vorsicht:** Der Typ `object` trifft hier auf alle Argumente zu!
+
+
+---
+
+# Vorsicht mit autom. Typumwandlung (2)
+
+```csharp
+class Vorsicht {
+	public void Obacht(`int i`)
+		=> Console.WriteLine("Vorsicht.Obacht: {0}", i);
+}
+static class VorsichtMixin {
+	public static void Obacht(this Vorsicht self, `object o`)
+		=> Console.writeLine("VorsichtMixin.Obacht: {0}", o.GetType());
+
+
+	static void Main(string[] args) {
+		Vorsicht v = new Vorsicht();
+		v.Obacht(3);
+		// `Vorsicht.Obacht: System.Int32`
+
+		v.Obacht("Hans");
+		// `VorsichtMixin.Obacht: System.String`
+	}
+}
+```

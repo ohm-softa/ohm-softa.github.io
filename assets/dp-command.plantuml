@@ -1,0 +1,39 @@
+@startuml
+allow_mixing
+skinparam linetype ortho
+
+'left to right direction
+
+agent Client
+
+agent Invoker
+
+interface Command {
+	+ execute()
+	+ undo()
+}
+
+Invoker o--> Command
+
+class Receiver {
+	+ action()
+}
+
+Client --> Receiver
+
+class ConcreteCommand implements Command {
+	+ execute()
+	+ undo()
+	- state
+}
+
+ConcreteCommand --> Receiver
+
+Client ..> ConcreteCommand : instantiates
+Client ..> Invoker : controls
+
+note right of ConcreteCommand::execute
+	receiver.action()
+endnote
+
+@enduml

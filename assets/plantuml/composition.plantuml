@@ -1,0 +1,13 @@
+@startuml Composition
+
+class SimpleList <T>{
+
+}
+
+class ListElement {
+
+}
+
+ListElement --* SimpleList
+
+@enduml

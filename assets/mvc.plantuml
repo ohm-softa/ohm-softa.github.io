@@ -1,0 +1,15 @@
+@startuml
+
+rectangle Model
+rectangle Controller
+rectangle View
+
+Model --> View : updates
+Model <-- Controller : manipulates
+
+actor User
+
+View <.. User : sees
+Controller <.. User : uses
+
+@enduml

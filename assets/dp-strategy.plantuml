@@ -1,0 +1,25 @@
+@startuml
+
+skinparam linetype ortho
+
+class Context
+
+interface Strategy {
+	+ algorithm()
+}
+
+Context o--> Strategy
+
+class ConcreteStrategyA implements Strategy {
+	+ algorithm()
+}
+
+class ConcreteStrategyC implements Strategy {
+	+ algorithm()
+}
+
+class ConcreteStrategyB implements Strategy {
+	+ algorithm()
+}
+
+@enduml

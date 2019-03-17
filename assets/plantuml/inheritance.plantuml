@@ -1,0 +1,11 @@
+@startuml inheritance
+
+class ClassA {
+
+}
+
+class ClassB extends ClassA {
+
+}
+
+@enduml

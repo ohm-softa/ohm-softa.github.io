@@ -1,0 +1,13 @@
+@startuml
+
+skinparam packageStyle rectangle
+
+package shipment {
+	class Shirt
+	class Pants
+	package shoebox {
+		class Shoes
+	}
+}
+
+@enduml

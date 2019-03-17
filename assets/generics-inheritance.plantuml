@@ -1,0 +1,24 @@
+@startuml
+interface List {
+	
+}
+
+interface "List<Number>" extends List {
+	
+}
+
+interface "List<Integer>" extends List {
+	
+}
+
+class "ArrayList<Number>" {
+	
+}
+
+class "ArrayList<Integer>" {
+	
+}
+
+"List<Number>" <|-- "ArrayList<Number>"
+"List<Integer>" <|-- "ArrayList<Integer>"
+@enduml

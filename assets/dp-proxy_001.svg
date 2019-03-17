@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="311px" preserveAspectRatio="none" style="width:247px;height:311px;" version="1.1" viewBox="0 0 247 311" width="247px" zoomAndPan="magnify"><defs><filter height="300%" id="fj0w7ds4w5tap" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fj0w7ds4w5tap)" height="97.2422" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="109" y="117.4883"/><rect fill="#FFFFFF" filter="url(#fj0w7ds4w5tap)" height="29.3105" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="197" y="146.7988"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="31" x2="31" y1="86.4883" y2="223.7305"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="113.5" x2="113.5" y1="86.4883" y2="223.7305"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="202" x2="202" y1="86.4883" y2="223.7305"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="40" x="8" y="83.5352">Client</text><ellipse cx="31" cy="13" fill="#FEFECE" filter="url(#fj0w7ds4w5tap)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M31,21 L31,48 M18,29 L44,29 M31,48 L18,63 M31,48 L44,63 " fill="#FEFECE" filter="url(#fj0w7ds4w5tap)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="40" x="8" y="236.2656">Client</text><ellipse cx="31" cy="249.2188" fill="#FEFECE" filter="url(#fj0w7ds4w5tap)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M31,257.2188 L31,284.2188 M18,265.2188 L44,265.2188 M31,284.2188 L18,299.2188 M31,284.2188 L44,299.2188 " fill="#FEFECE" filter="url(#fj0w7ds4w5tap)" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#fj0w7ds4w5tap)" height="30.4883" style="stroke: #A80036; stroke-width: 1.5;" width="61" x="81.5" y="51"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="88.5" y="71.5352">aProxy</text><rect fill="#FEFECE" filter="url(#fj0w7ds4w5tap)" height="30.4883" style="stroke: #A80036; stroke-width: 1.5;" width="61" x="81.5" y="222.7305"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="88.5" y="243.2656">aProxy</text><rect fill="#FEFECE" filter="url(#fj0w7ds4w5tap)" height="30.4883" style="stroke: #A80036; stroke-width: 1.5;" width="72" x="164" y="51"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="58" x="171" y="71.5352">aSubject</text><rect fill="#FEFECE" filter="url(#fj0w7ds4w5tap)" height="30.4883" style="stroke: #A80036; stroke-width: 1.5;" width="72" x="164" y="222.7305"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="58" x="171" y="243.2656">aSubject</text><rect fill="#FFFFFF" filter="url(#fj0w7ds4w5tap)" height="97.2422" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="109" y="117.4883"/><rect fill="#FFFFFF" filter="url(#fj0w7ds4w5tap)" height="29.3105" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="197" y="146.7988"/><polygon fill="#A80036" points="97,113.4883,107,117.4883,97,121.4883,101,117.4883" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="31" x2="103" y1="117.4883" y2="117.4883"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="55" x="38" y="113.0566">request()</text><polygon fill="#A80036" points="185,142.7988,195,146.7988,185,150.7988,189,146.7988" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="119" x2="191" y1="146.7988" y2="146.7988"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="55" x="126" y="142.3672">request()</text><polygon fill="#A80036" points="130,172.1094,120,176.1094,130,180.1094,126,176.1094" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="124" x2="201" y1="176.1094" y2="176.1094"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="54" x="136" y="171.6777">return ...</text><polygon fill="#A80036" points="42,201.4199,32,205.4199,42,209.4199,38,205.4199" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="36" x2="108" y1="205.4199" y2="205.4199"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="54" x="48" y="200.9883">return ...</text><!--
+@startuml
+
+actor Client
+
+Client - -> aProxy : request()
+activate aProxy
+
+aProxy - -> aSubject : request()
+activate aSubject
+
+aSubject - -> aProxy : return ...
+deactivate aSubject
+
+aProxy - -> Client : return ...
+
+@enduml
+
+PlantUML version 1.2017.16(Sun Sep 03 12:53:37 CEST 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_144-b01
+Operating System: Mac OS X
+OS Version: 10.13.1
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

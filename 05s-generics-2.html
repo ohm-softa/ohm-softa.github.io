@@ -1,0 +1,229 @@
+---
+layout: presentation
+title: Generics, pt. 2
+permalink: /05s-generics-2/
+---
+
+layout: true
+
+<footer>
+    <span class="icon github">
+    <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+    </svg>
+    </span>
+    <a href="https://github.com/sikoried"><span class="username">sikoried</span></a>
+</footer>
+
+---
+
+<h1>Mixins, part two.</h1>
+
+### Aspected Oriented Programming
+
+---
+
+<h1>Mixins in Java</h1>
+
+Use `default` methods!
+
+```java
+public `interface` Escalated {
+	String getText();
+	`default` String escalated() {
+  		return getText.ToUpper();
+	}
+}
+public class Message `implements Escalated` {
+	private String m;
+	public Message(String m) { this.m = m; }
+
+	public String getText() {
+		return m;
+	}
+}
+```
+
+
+```java
+Message m = new Message("Hello World");
+System.out.println(`m.escalated()`);       // "HELLO, WORLD"
+```
+
+---
+
+# Stateful Mixins
+
+Current implementation is simple -- but stateless!
+
+What about incresing escalation??
+
+```
+Hello, World
+HELLO, WORLD
+HELLO, WORLD!
+HELLO, WORLD!!
+HELLO, WORLD!!!
+```
+
+---
+
+# Stateful Mixins (Variant A)
+
+Use `WeakHashMap` to memorize state for each instance.
+
+```java
+public interface StatefulEscalate {
+	String getText();
+
+	// static member!
+	WeakHashMap<StatefulEscalate1, Integer> state 
+		= new WeakHashMap<>();
+
+	default String escalated() {
+		int n = state.getOrDefault(this, 0);
+
+		state.put(this, n+1);
+
+		return getText().toUpperCase() +
+				Stream.generate(() -> "!").limit(n).reduce("", (a, b) -> a + b);
+	}
+}
+```
+
+- drawback: state is `public`, thus exposed! 😒
+
+---
+
+# Stateful Mixins (Variant B)
+
+What about
+
+- a secure way to manage state?
+- multiple mixins and different state?
+
+---
+
+# Stateful Mixins (Variant B)
+
+Same principle, but maintain state with actual instance...
+
+...for each mixin (interface) separately!
+
+```java
+public interface Stateful {
+	<T> T getState(Class clazz, T initial);
+	<T> void setState(Class clazz, T state);
+}
+
+public class StatefulObject implements Stateful {
+	// object -> interface -> state object
+	private HashMap<Class, Object> state 
+		= new HashMap<>();
+	@Override
+	public `final` <T> T getState(Class clazz, T initial) {
+		// cast necessary, since internally we store Object
+		return (T) state.getOrDefault(clazz, initial);
+	}
+	@Override
+	public `final` <T> void setState(Class clazz, T o) {
+		state.put(clazz, o);
+	}
+}
+```
+
+---
+
+# Stateful Mixins (Variant B, cont'd)
+
+```java
+public interface StatefulEscalate2 extends Stateful {
+	String getText();
+
+	default String escalated() {
+		// no typecast... generic methods ftw!
+		int n = getState(this, StatefulEscalate2.class, 0);
+		setState(this, StatefulEscalate2.class, n+1);
+
+		String bangs = Stream.generate(() -> "!")
+			.limit(n).reduce("", (a, b) -> a + b);
+
+		return getText().toUpperCase() + bangs;	
+	}
+}
+```
+```java
+public interface StatefulConfusable extends Stateful {
+	String text();
+
+	default String confuse() {
+		String s = getState(StatefulConfusable.class, "?");
+		setState(StatefulConfusable.class, s + s);
+
+		return text() + s;
+	}
+}
+```
+
+---
+
+<h1>Attach Mixins to Target Class</h1>
+
+```java
+public class StatefulMessage extends StatefulOject 
+		implements StatefulConfusable, StatefulEscalate2 {
+	private String m;
+	public StatefulMessage(String m) { this.m = m; }
+
+	@Override
+	public String getText() {
+		return m;
+	}
+}
+```
+```java
+public class App {
+	public static void main(String[] args) {
+		StatefulMessage m1 = new StatefulMessage("Hans");
+		StatefulMessage m2 = new StatefulMessage("Dampf");
+
+		System.out.println(m1.escalated());  // "HANS"
+		System.out.println(m2.escalated());  // "DAMPF"
+		System.out.println(m2.escalated());  // "DAMPF!"
+
+		System.out.println(m1.confuse());    // "HANS?"
+		System.out.println(m1.confuse());    // "HANS??"
+		System.out.println(m2.confuse());    // "DAMPF?"
+	}
+}
+```
+
+---
+
+# Generics, part two.
+
+- Generics and inheritance
+- Bounds on type variables
+- Wildcards
+- Bounds on wildcards
+
+---
+
+# Generics and Inheritance
+
+![generics and inheritance](/assets/generics-inheritance.svg)
+
+---
+
+# Covariance and Contravariance
+
+![PECS](/assets/Java-Generics-cheat-sheet-graphic-v1.png)
+
+---
+
+# Summary
+
+- Use bounds on type variables where necessary
+- Use wildcards with upper (read) and lower (write) boundaries to work with container classes
+- Avoid wildcards on return types.

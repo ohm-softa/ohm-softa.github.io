@@ -1,0 +1,17 @@
+title: "Softwarearchitektur"
+email: korbinian.riedhammer@th-nuernberg.de
+description: "Materialien zum Pflichtmodul Softwarearchitektur"
+baseurl: ""
+url: "https://ohm-softa.github.io"
+exclude: ["LICENSE", "Remarks.md", "examples"]
+github_username: ["sikoried"]
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+highlighter: rouge
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge

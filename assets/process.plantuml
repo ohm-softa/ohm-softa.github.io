@@ -1,0 +1,68 @@
+@startuml
+
+OS --> main : java MyProgram
+activate main
+
+main --> MyProgram : mp = new MyProgram("Test")
+note right : "Created MyProgram Test"
+deactivate main
+activate MyProgram
+
+MyProgram --> main
+deactivate MyProgram
+activate main
+
+main --> printNum : mp.printNum(0)
+deactivate main
+activate printNum
+
+printNum --> println
+note right: "Test: 0"
+deactivate printNum
+activate println
+
+println --> printNum
+deactivate println
+activate printNum
+
+printNum --> main
+deactivate printNum
+activate main
+
+main --> printNum : mp.printNum(1)
+deactivate main
+activate printNum
+
+printNum --> println
+note right: "Test: 1"
+deactivate printNum
+activate println
+
+println --> printNum
+deactivate println
+activate printNum
+
+printNum --> main
+deactivate printNum
+activate main
+
+main --> printNum : mp.printNum(2)
+deactivate main
+activate printNum
+
+printNum --> println
+note right : "Test: 2"
+deactivate printNum
+activate println
+
+println --> printNum
+deactivate println
+activate printNum
+
+printNum --> main
+deactivate printNum
+activate main
+
+main --> OS : end of main()
+
+@enduml

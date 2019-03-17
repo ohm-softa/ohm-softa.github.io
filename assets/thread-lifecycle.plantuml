@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+
+[*] --> ready : start()
+
+ready --> running : chosen by scheduler to run
+
+running --> ready : scheduler swaps it out
+
+running --> ready : yield()
+
+running --> inactive : sleep(), wait(), join()
+inactive: sleeping
+inactive: waiting
+inactive: blocked (IO)
+inactive: blocked (sync)
+
+inactive --> ready : unblocks
+
+inactive --> ready : notify(), interrupt()
+
+@enduml

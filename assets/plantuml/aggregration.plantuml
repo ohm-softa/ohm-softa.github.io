@@ -1,0 +1,13 @@
+@startuml Aggregation
+
+class Person {
+    
+}
+
+class Book {
+
+}
+
+Book --o Person
+
+@enduml

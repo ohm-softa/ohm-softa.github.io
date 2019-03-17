@@ -1,0 +1,18 @@
+@startuml
+
+client --> observable : addObserver(observer1)
+client --> observable : addObserver(observer2)
+
+observable --> observable : notifyObservers(...)
+
+observable --> observer1 : update(...)
+
+observable --> observer2 : update(...)
+
+client --> observable : deleteObserver(observer1)
+
+observable --> observable : notifyObservers(...)
+
+observable --> observer2 : update(...)
+
+@enduml

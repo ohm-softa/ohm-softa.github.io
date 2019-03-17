@@ -1,0 +1,33 @@
+@startuml
+allow_mixing
+
+
+interface Aggregate<T> {
+	+ iterator(): Iterator<T>
+}
+
+interface Iterator<T> {
+	+ next(): T
+	+ hasNext(): boolean
+}
+
+agent Client
+Aggregate <-left- Client
+Client -right-> Iterator
+
+class ConcreteAggregate<T> implements Aggregate {
+	+ iterator(): Iterator<T>
+}
+
+note bottom of ConcreteAggregate
+	return new ConcreteIterator(this)
+end note
+
+class ConcreteIterator<T> implements Iterator {
+	+ next(): T
+	+ hasNext(): boolean
+}
+
+ConcreteAggregate -right- ConcreteIterator
+
+@enduml

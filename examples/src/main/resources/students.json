@@ -1,0 +1,12 @@
+[
+  {"name": "Korvas Phrog",    "matrikel": 0, "classes": ["Programmieren 1", "Programmieren 2", "Programmieren 3"]},
+  {"name": "Voron Garallia",  "matrikel": 1, "classes": ["Programmieren 1", "Programmieren 2"]},
+  {"name": "Alys Miransi",	  "matrikel": 2, "classes": ["Programmieren 1", "Programmieren 2"]},
+  {"name": "Noble Shesh",     "matrikel": 3, "classes": ["Programmieren 1", "Programmieren 3"]},
+  {"name": "Spang Durothil",  "matrikel": 4, "classes": ["Programmieren 1", "Programmieren 3"]},
+  {"name": "Almir Scapr",     "matrikel": 5, "classes": ["Programmieren 1", "Programmieren 2", "Programmieren 3"]},
+  {"name": "Rassth Crazell",  "matrikel": 6, "classes": ["Programmieren 1", "Programmieren 2"]},
+  {"name": "Liunb Ghrna",     "matrikel": 7, "classes": ["Programmieren 1"]},
+  {"name": "Snoga Horn",      "matrikel": 8, "classes": ["Programmieren 2", "Programmieren 3"]},
+  {"name": "Lahek Cote",      "matrikel": 9, "classes": ["Programmieren 3"]}
+]

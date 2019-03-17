@@ -1,0 +1,21 @@
+@startuml
+
+abstract class Shipment {
+	+ count(): int
+}
+
+class Box extends Shipment {
+	+ count(): int
+	- contents: Shipment
+}
+
+class Shirt extends Shipment
+class Pants extends Shipment
+
+class Shoes extends Shipment {
+	+ count(): int
+}
+
+Shipment --* Box
+
+@enduml

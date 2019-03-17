@@ -1,0 +1,46 @@
+[
+  {"m": 0, "n": "Programmieren 1", "g": 100},
+  {"m": 0, "n": "Programmieren 2", "g": 270},
+  {"m": 0, "n": "Programmieren 3", "g": 130},
+  {"m": 0, "n": "VV", "g": 200},
+  {"m": 0, "n": "GdI", "g": 170},
+
+  {"m": 1, "n": "Programmieren 1", "g": 100},
+  {"m": 1, "n": "Programmieren 2", "g": 500},
+  {"m": 1, "n": "GdI", "g": 300},
+  {"m": 1, "n": "GdI 2", "g": 170},
+
+  {"m": 2, "n": "Programmieren 1", "g": 100},
+  {"m": 2, "n": "Programmieren 2", "g": 500},
+
+  {"m": 3, "n": "Programmieren 1", "g": 100},
+  {"m": 3, "n": "Programmieren 3", "g": 500},
+  {"m": 3, "n": "GdI", "g": 200},
+
+  {"m": 4, "n": "Programmieren 3", "g": 500},
+  {"m": 4, "n": "Programmieren 3", "g": 200},
+  {"m": 4, "n": "GdI", "g": 500},
+  {"m": 4, "n": "GdI", "g": 170},
+
+  {"m": 5, "n": "Programmieren 1", "g": 100},
+  {"m": 5, "n": "Programmieren 2", "g": 500},
+  {"m": 5, "n": "Programmieren 3", "g": 300},
+
+  {"m": 6, "n": "Programmieren 1", "g": 100},
+  {"m": 6, "n": "Programmieren 2", "g": 200},
+
+  {"m": 7, "n": "Programmieren 1", "g": 500},
+  {"m": 7, "n": "Programmieren 2", "g": 500},
+  {"m": 7, "n": "GdI", "g": 500},
+  {"m": 7, "n": "GdI 2", "g": 500},
+  {"m": 7, "n":  "VV", "g":  500},
+
+  {"m": 8, "n": "Programmieren 1", "g": 100},
+  {"m": 8, "n": "Programmieren 2", "g": 500},
+  {"m": 8, "n": "GdI", "g": 300},
+
+  {"m": 9, "n": "Programmieren 1", "g": 500},
+  {"m": 9, "n": "Programmieren 2", "g": 500},
+  {"m": 9, "n": "GdI", "g": 100},
+  {"m": 9, "n": "Mathe", "g": 100}
+]

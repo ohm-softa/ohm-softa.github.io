@@ -1,0 +1,36 @@
+@startuml
+
+activate threadA
+threadA --> threadA : doSomething()
+
+
+threadA --> lock : lock.wait()
+deactivate threadA
+activate lock
+
+activate threadB
+threadB --> threadB : doOtherThings()
+
+
+threadB --> lock : lock.notify()
+lock --> threadA
+deactivate lock
+activate threadA
+
+threadB --> lock : lock.wait()
+activate lock
+deactivate threadB
+
+threadA --> threadA : doSomething()
+
+threadA --> lock : lock.notify()
+lock --> threadB
+deactivate lock
+activate threadB
+
+threadB --> threadB : dOtherThings()
+
+...
+
+
+@enduml

@@ -1,0 +1,137 @@
+---
+layout: presentation
+title: Inheritance
+permalink: /03s-inheritance/
+---
+
+layout: true
+
+<footer>
+    <span class="icon github">
+    <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+    </svg>
+    </span>
+    <a href="https://github.com/sikoried"><span class="username">sikoried</span></a>
+</footer>
+
+---
+
+# Inheritance Revisited
+
+- extending classes vs. implementing interfaces
+- abstract classes
+- final classes and methods
+- inheritance and shadowing
+- multiple inheritance
+- the diamond problem
+- decorator pattern
+
+---
+
+# Abstract Classes: Original
+
+```java
+interface DBItem {
+    String makeInsertSQL();
+}
+```
+```java
+class Student implements DBItem {
+    private String name;
+    private int matrikel;
+    public String makeInsertSQL() {
+        return "INSERT INTO student (name, matrikel) VALUES (" 
+            + name + ", " + matrikel + ")";
+    }
+}
+```
+```java
+class FWPM implements DBItem {
+    String name, description;
+    int numPart;
+    public String makeInsertSQL() {
+        return "INSERT INTO fwpm (name, numPart, description) VALUES (" 
+            + name + ", " + numPart + ", " + description + ")";
+    }
+}
+```
+
+---
+
+# Abstract Classes: Improved
+
+```java
+abstract class DBItem {  // note: could also use interface and default methods
+    String makeInsertSQL() {
+        return "INSERT INTO " + getTable() + " (" + getFields()) 
+            + ") VALUES (" + getValues() + ")";
+    }
+
+    abstract String getTable();
+    abstract String getFields();
+    abstract String getValues();
+}
+```
+```java
+class Student extends DBItem {
+    private String name;
+    private int matrikel;
+    String getTable() { 
+        return "student"; 
+    }
+    String getFields() {
+        return "name, matrikel";
+    }
+    String getValues() {
+        return name + ", " + matrikel;
+    }
+}
+```
+
+---
+
+# "Multiple Inheritance" with modular code
+
+```java
+interface Van {
+    List getPersons();
+    default void board(Person p) {
+        getPersons().add(p);
+    }
+    // ...
+}
+```
+```java
+class VwTransporterPickup implements Van, ... {
+    private List persons;
+    public List getPersons() {
+        return persons;
+    }
+    // ...
+}
+```
+
+Pull functionality into interfaces with default methods, using enforced getters/setters for data elements.
+
+---
+
+# Decorator Pattern
+
+<div>
+    <div style="float: right; width: 60%; height: 100%">
+        <img alt="decorator pattern" src="/assets/decorator-pattern.svg" style="width: 100%">
+    </div>
+    <div>
+        <ul>
+        <li>Add functionality to instances of existing class</li>
+        <li>Decorator maintains reference to instance of main class</li>
+        <li>Allows for arbitrary chaining</li>
+        <li>See for example Java IO classes</li>
+        </ul>
+    </div>
+</div>
+
+
+

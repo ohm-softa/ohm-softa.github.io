@@ -1,0 +1,15 @@
+@startuml Visibility
+
+class ClassA {
+    - privateField: int
+    # protectedField: String
+    ~ packagePrivateField: double
+    + publicField: float
+
+    - privateMethod(): void
+    # protectedMethod(): short
+    ~ packagePrivateMethod(): String
+    + publicMethod(): int
+}
+
+@enduml

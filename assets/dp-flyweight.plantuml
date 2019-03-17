@@ -1,0 +1,40 @@
+@startuml
+allow_mixing
+skinparam linetype ortho
+left to right direction
+skinparam nodesep 50
+
+
+class FlyweightFactory {
+	+ getFlyweight(key): Flyweight
+}
+
+note right of FlyweightFactory::getFlyweight
+	if (flyweights.contains(key))
+		return flyweights.get(key);
+
+	Flyweight fw = new ConcreteFlyweight();
+	flyweights.put(key, fw);
+	return fw;
+end note
+
+interface Flyweight {
+	+ operation(extrinsicState)
+}
+
+FlyweightFactory o--> Flyweight
+
+
+class ConcreteFlyweight {
+	- intrinsicState
+	+ operation(extrinsicState)
+}
+
+ConcreteFlyweight -..left-|> Flyweight
+
+actor Client
+
+Client --> FlyweightFactory
+Client --> ConcreteFlyweight
+
+@enduml

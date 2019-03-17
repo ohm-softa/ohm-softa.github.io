@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="105px" preserveAspectRatio="none" style="width:338px;height:105px;" version="1.1" viewBox="0 0 338 105" width="338px" zoomAndPan="magnify"><defs><filter height="300%" id="f169br44mwvc8h" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class Singleton--><rect fill="#FEFECE" filter="url(#f169br44mwvc8h)" height="86.8652" id="Singleton" style="stroke: #A80036; stroke-width: 1.5;" width="159" x="6" y="8"/><ellipse cx="55.75" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M58.7231,29.6431 Q58.1421,29.9419 57.5029,30.0913 Q56.8638,30.2407 56.1582,30.2407 Q53.6514,30.2407 52.3315,28.5889 Q51.0117,26.937 51.0117,23.8159 Q51.0117,20.6865 52.3315,19.0347 Q53.6514,17.3828 56.1582,17.3828 Q56.8638,17.3828 57.5112,17.5322 Q58.1587,17.6816 58.7231,17.9805 L58.7231,20.7031 Q58.0923,20.1221 57.4988,19.8523 Q56.9053,19.5825 56.2744,19.5825 Q54.9297,19.5825 54.2449,20.6492 Q53.5601,21.7158 53.5601,23.8159 Q53.5601,25.9077 54.2449,26.9744 Q54.9297,28.041 56.2744,28.041 Q56.9053,28.041 57.4988,27.7712 Q58.0923,27.5015 58.7231,26.9204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="76.25" y="28.5352">Singleton</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="164" y1="40" y2="40"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="48.9775"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="133" x="26" y="54.6348">static instance: Singleton</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="164" y1="60.9551" y2="60.9551"/><rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="69.9326"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="58" x="26" y="75.5898">Singleton()</text><ellipse cx="17" cy="85.8877" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="26" y="88.5449">getInstance(): Singleton</text><polygon fill="#FBFB77" filter="url(#f169br44mwvc8h)" points="200.5,34,200.5,59.3105,316.5,59.3105,316.5,44,306.5,34,200.5,34" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FBFB77" points="200.5,34,200.5,42.6553,152,84.3877,200.5,50.6553,200.5,59.3105,316.5,59.3105,316.5,44,306.5,34,200.5,34" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="306.5" x2="306.5" y1="34" y2="44"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="316.5" x2="306.5" y1="44" y2="44"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="95" x="206.5" y="51.5684">return instance</text><!--link Singleton to Singleton$$$RIGHT--><!--
+@startuml
+
+class Singleton {
+	- Singleton()
+	+ getInstance(): Singleton
+	- static instance: Singleton
+}
+
+note right of Singleton::getInstance
+	return instance
+endnote
+
+@enduml
+
+PlantUML version 1.2017.16(Sun Sep 03 12:53:37 CEST 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_144-b01
+Operating System: Mac OS X
+OS Version: 10.13.1
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

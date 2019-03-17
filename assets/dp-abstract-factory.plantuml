@@ -1,0 +1,42 @@
+@startuml
+allow_mixing
+skinparam linetype ortho
+left to right direction
+
+interface AbstractFactory {
+	+ CreateProductA(): AbstractProductA
+	+ CreateProductB(): AbstractProductB
+}
+
+class ConcreteFactory1 implements AbstractFactory {
+	+ CreateProductA(): AbstractProductA
+	+ CreateProductB(): AbstractProductB
+}
+
+class ConcreteFactory2 implements AbstractFactory {
+	+ CreateProductA(): AbstractProductA
+	+ CreateProductB(): AbstractProductB
+}
+
+abstract class AbstractProductA
+class ProductA1 extends AbstractProductA
+class ProductA2 extends AbstractProductA
+
+ConcreteFactory1 ..> ProductA1
+ConcreteFactory2 ..> ProductA2
+
+abstract class AbstractProductB
+class ProductB1 extends AbstractProductB
+class ProductB2 extends AbstractProductB
+
+ConcreteFactory1 ..> ProductB1
+ConcreteFactory2 ..> ProductB2
+
+agent client
+
+client --> AbstractFactory
+client --> AbstractProductA
+client --> AbstractProductB
+
+
+@enduml

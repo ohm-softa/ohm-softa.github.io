@@ -1,0 +1,203 @@
+---
+layout: presentation
+title: Proxy, Adapter and Flyweight
+permalink: /09s-proxy-adapter-flyweight/
+---
+
+layout: true
+
+<footer>
+    <span class="icon github">
+    <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+    </svg>
+    </span>
+    <a href="https://github.com/sikoried"><span class="username">sikoried</span></a>
+</footer>
+
+---
+
+# Design Patterns, pt. 3
+
+## Proxy, Adapter and Flyweight
+
+Korbinian Riedhammer
+
+---
+
+# Proxy
+
+![dp-proxy](/assets/dp-proxy.svg)
+![dp-proxy](/assets/dp-proxy_001.svg)
+
+---
+
+# Proxy
+
+## Variants
+
+**Remote** proxy (aka. _Ambassador_): Provides local proxy to remote object (different process or physical location)
+
+**Virtual** proxy: Creates expensive objects on demand; not to be confused with singleton (unique instance)
+
+**Protection** Proxy: controls access to the original object, e.g. read-only access that simulates write.
+
+---
+
+# Proxy
+
+## Examples
+
+Caching for network requests.
+
+Log output routing.
+
+Lazy initialization of expensive objects.
+
+Related: security facade; behaves like proxy, but hides error handling or authentication.
+
+---
+
+# Proxy, Decorator and Composite
+
+## Decorator
+
+Adds functionality without subclassing: one enclosed instance plus extra logic.
+
+## Composite
+
+Models a recursive structure, such as user interface widgets: arbitrary number of enclosed instances, logic typically restricted to traversing the structure or specific to leaf classe.
+
+## Proxy
+
+Mimics the original object (!) while adding access control or caching.
+
+---
+
+# Adapter
+
+## Class Adapter
+
+.skip[
+![dp-adapter](/assets/dp-adapter.svg)
+]
+
+---
+
+# Adapter
+
+## Object Adapter
+
+.skip[
+![dp-adapter](/assets/dp-adapter_001.svg)
+]
+
+Best choice if implementation of Adaptee unknown.
+
+---
+
+# Flyweight
+
+Example HTML to render:
+
+```html
+<ul>
+	<li><img alt="Exhibit 1" src="picasso.png"></li>
+	<li><img alt="Exhibit 2" src="vangogh.png"></li>
+	<li><img alt="Exhibit 3" src="munch.png"></li>
+	<li><img alt="Exhibit 4" src="monet.png"></li>
+</ul>
+```
+
+---
+
+# Flyweight
+
+A different example:
+
+```html
+<ul>
+	<li><img alt="Exhibit 1" src="picasso.png"></li>
+	<li><img alt="Also Picasso" src="picasso.png"></li>
+	<li><img alt="Picasso, too" src="picasso.png"></li>
+	<li><img alt="Oh look, Picasso" src="picasso.png"></li>
+</ul>
+```
+
+---
+
+# Flyweight
+
+![do-flyweight](/assets/dp-flyweight.svg)
+
+
+**Intrinsic state** becomes the _flyweight_.
+
+**Extrinsic state** managed by client; extrinsic state injected.
+
+---
+
+# Flyweight
+
+## Recipe
+
+0. Do you create a lot of objects?
+1. Identify what's _intrinsic_ and _extrinsic_ to your class.
+2. Move intrinsic parts to _flyweight_, create factory.
+3. Reduce original class to extrinsic parts
+
+## Notes
+
+- The term _flyweight_ is misleading: it is _light_ in a sense of _less and static parts_, but often contains the "heavy" objects.
+- Often there is no `operation()`, but just a reference to a shared object.
+- The flyweight if often used in combination with the composite pattern (hence `operation()`) 
+
+---
+
+# Flyweight
+
+## Examples
+
+Glyph (letter) rendering for text fields; intrinsic state: true-type fonts (often several MB), extrinsic state: position on screen, scale (size).
+
+Browser rendering the same media multiple times; intrinsic state: actual media (image, video, audio), extrinsic state: location on screen
+
+Android `RecyclerView`; intrinsic state: inflated layout of `RecycleView`, extrinsic state: actual contents to be displayed (often nested with further Flyweight).
+
+Video games rendering/tiling engines; intrinsic state: actual texture or tile, extrinsic state: 3D location and orientation
+
+---
+
+# Summary of Design Patterns
+
+There is a total of 23 design patterns described by Gamma _et al._
+
+## Creational Patterns
+
+- Factory and factory method
+- Singleton
+
+---
+
+# Summary of Design Patterns
+
+## Structural Patterns
+
+- Adapter
+- Composite
+- Decorator
+- Flyweight
+- Proxy
+
+---
+
+# Summary of Design Patterns
+
+## Behavioral Patterns
+- Command
+- Iterator
+- Observer
+- State
+- Strategy
+- Template method

@@ -1,0 +1,300 @@
+---
+layout: presentation
+title: "Introduction to Functional Programming"
+permalink: /12s-fp1/
+---
+
+layout: true
+
+<footer>
+    <span class="icon github">
+    <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+    </svg>
+    </span>
+    <a href="https://github.com/sikoried"><span class="username">sikoried</span></a>
+</footer>
+
+---
+
+# Introduction to Functional Programming
+
+Korbinian Riedhammer
+
+---
+
+# Functional Programming
+
+## Immutable Objects
+
+## Functions as First-Class Citizens
+
+---
+
+# Immutable Objects
+
+If objects cannot be changed after their creation, parallelization becomes much easier.
+
+`java.lang.String`
+- no methods to change instance
+- always returns _new_ instance
+
+`final` modifier for attributes and variable, sort of:
+- only prevents overwriting of primitive type or reference
+- object may still be mutated
+
+.skip[
+> No mutation means no `for`/`while`!
+
+]
+---
+
+# Functions as First-Class Citizens
+
+```java
+@FunctionalInterface
+interface Function<A, B> {
+	B apply(A obj);
+}
+```
+
+```java
+Function<Integer, Integer> square1 = new Function<Integer, Integer>() {
+	@Override
+	public Integer apply(Integer i) {
+		return i * i;
+	}
+}
+```
+
+Or shorter as lambda expression `(arglist) -> { block; }`
+
+```java
+Function<Integer, Integer> square2 = (Integer i) -> { return i * i };
+```
+
+Or even shorter, for single instructions
+
+```java
+Function<Integer, Integer> square3 = i -> i * i;
+```
+
+---
+
+# Why Functional Programming?
+
+## Immutability simplifies parallelization
+
+## Separation of Concerns
+
+Functions as first-class citizens help to separate the iteration logic from the actual business logic.
+
+
+---
+
+# Example
+
+Say you want to
+
+- retrieve all students from a database,
+- filter out those who took _Programmieren 3_,
+- load their transcript of records from another database
+- print all class names
+
+
+---
+
+# Iterative Solution
+
+```java
+for (Student s : getStudents()) {
+	if (s.getClasses().contains("Programmieren 3")) {
+		ToR tor = db.getToR(s.getMatrikel());
+		for (Record r : tor) {
+			System.out.println(r.getName());
+		}
+	}
+}
+```
+
+---
+
+# A Simple Immutable List
+
+`head` stores the data, `tail` links to the next element.
+
+The end of the list is explicitly modeled.
+
+```java
+class List<T> {
+	final T head;
+	final List<T> tail;
+
+	private List(T el, List<T> tail) {
+		this.head = el;
+		this.tail = tail;
+	}
+
+	boolean isEmpty() {
+		return head == null;
+	}
+
+	// ...
+}
+```
+
+---
+
+# Some Helper Functions
+
+Some factory functions for convenience:
+
+```java
+class List<T> {
+	// ...
+
+	static <T> List<T> empty() {
+		return new List<T>(null, null);
+	}
+
+	static <T> List<T> list(T elem, List<T> xs) {
+		return new List<>(elem, xs);
+	}
+	
+	static <T> List<T> list(T... elements) {
+		if (elements.length == 0)
+			return empty();
+		int i = elements.length - 1;
+		List<T> xs = list(elements[i], empty());
+		while (--i >= 0)
+			xs = list(elements[i], xs);
+		return xs;
+	}
+}
+```
+
+---
+
+# Recursive Sort Algorithms
+
+---
+
+# Recursive Sort Algorithms
+
+## Insertion Sort
+
+```java
+static <T extends Comparable<T>> List<T> isort(List<T> xs) {
+	if (xs.isEmpty()) return xs;
+	else return insert(xs.head, isort(xs.tail));
+}
+
+private static <T extends Comparable<T>> List<T> insert(T x, List<T> xs) {
+	if (xs.isEmpty()) return list(x, empty());
+	else {
+		if (x.compareTo(xs.head) < 0) return list(x, xs);
+		else return list(xs.head, insert(x, xs.tail));
+	}
+}
+```
+
+---
+
+# Recursive Sort Algorithms
+
+## Merge Sort
+
+```java
+static <T extends Comparable<T>> List<T> msort(List<T> xs) {
+	if (xs.isEmpty()) return xs;            // no element at all
+	else if (xs.tail.isEmpty()) return xs;  // only single element
+	else {
+		int n = length(xs);
+		List<T> a = take(xs, n/2);
+		List<T> b = drop(xs, n/2);
+
+		return merge(msort(a), msort(b));
+	}
+}
+
+private static <T extends Comparable<T>> List<T> merge(List<T> xs, List<T> ys) {
+	if (xs.isEmpty()) return ys;
+	else if (ys.isEmpty()) return xs;
+	else {
+		if (xs.head.compareTo(ys.head) < 0)
+			return list(xs.head, merge(xs.tail, ys));
+		else
+			return list(ys.head, merge(xs, ys.tail));
+	}
+}
+```
+
+---
+
+# Anonymous Classes, Lambda, References
+
+```java
+static <A> void forEach(List<A> xs, Consumer<A> c) {
+	if (xs.isEmpty()) return;
+	else {
+		c.accept(xs.head);
+		forEach(xs.tail, c);
+	}
+}
+```
+
+And here's a `Consumer` that prints elements to `System.out`:
+
+```java
+List<Integer> xs = list(1, 2, 3, 4);
+forEach(xs, new Consumer<Integer>() {
+	@Override
+	public void accept(Integer i) {
+		System.out.println(i);
+	}
+});
+
+// or shorter with lambda
+forEach(xs, i -> System.out.println(i));
+
+// or even shorter with method references
+forEach(xs, System.out::println);
+```
+
+---
+
+# Example
+
+### Iterative Solution (see earlier slide)
+
+```java
+for (Student s : Database.getStudents()) {
+	if (s.getClasses().contains("Programmieren 3")) {
+		Transcript tr = Database.getToR(s.getMatrikel());
+		for (Record r : tr)
+			System.out.println(r);
+	}
+}
+```
+
+---
+
+# Example
+
+### Functional Solution
+
+```java
+Database.getStudents().stream()
+	.filter(s -> s.getClasses().contains("Programmieren 3"))
+	.map(Student::getMatrikel)
+	.map(Database::getToR)
+	.flatMap(t -> t.records.stream())  // stream of lists to single list
+	.forEach(System.out::println);
+```
+
+---
+
+.skip.center[
+![wow](/assets/jawdrop.gif)
+]

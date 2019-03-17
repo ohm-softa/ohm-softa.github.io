@@ -1,0 +1,39 @@
+@startuml
+
+
+skinparam packageStyle rectangle
+
+package association {
+	class Pretzel
+	class Beer
+	Pretzel --> Beer : usually goes with
+}
+
+package "inheritance and implementation" {
+	class Parent
+	interface Princess
+	class Child extends Parent implements Princess
+}
+
+package dependency {
+	class BaföG
+	class Student
+	Student ..> BaföG : often depends on
+}
+
+package composition {
+	class Weisswurstfrühstück
+	class Weisswurst
+	class Weissbier
+	Weisswurstfrühstück *-- Weisswurst
+	Weisswurstfrühstück *-- Weissbier
+}
+
+package aggregation {
+	class Pond
+	class Duck
+	Pond o-- Duck
+}
+
+
+@enduml

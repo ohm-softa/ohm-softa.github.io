@@ -1,0 +1,13 @@
+@startuml Nested-Class
+
+class OuterClass {
+
+}
+
+class InnerClass {
+
+}
+
+InnerClass --+ OuterClass
+
+@enduml

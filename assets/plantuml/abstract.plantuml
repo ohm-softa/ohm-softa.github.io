@@ -1,0 +1,7 @@
+@startuml Abstract
+
+abstract class ClassA {
+    +{abstract} greet(name: String): String
+}
+
+@enduml
