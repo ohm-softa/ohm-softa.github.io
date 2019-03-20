@@ -18,19 +18,27 @@ layout: true
 
 ---
 
+.skip[
+# Softwarearchitektur
+]
+
+.skip[
+Prof. Dr.-Ing. Korbinian Riedhammer
+]
+
+---
+
 # Introduction
 
-- Programmieren 3: mandatory class for CS majors
+- Software Architecture: mandatory class for CS majors
 - materials
-	- https://hsro-inf-prg3.github.io
-	- Github organization: https://github.com/hsro-inf-prg3 (BIO)
+	- [Moodle course 5335](https://elearning.ohmportal.de/course/view.php?id=5335), key: `(redacted)`
+	- https://ohm-softa.github.io
+	- Github organization: https://github.com/ohm-softa (BIO)
 	- ...in English! &#x263A;
-	- slides, lecture notes, assignments (with Readmes)
-- class: Thursdays, 8a
-- tutorials: 
-	- tutor: [Peter Kurfer](https://github.com/baez90)
-	- Thursdays 11.45a/1.45p/3.30p
-	- sign up [through community](https://www.fh-rosenheim.de/community/inf-community/lehrveranstaltungen/details/?tx_fhalumni_pi1%5Buid%5D=3134#registration)
+	- slides, lecture notes, assignments (with READMEs)
+- class: Thursdays, 11.30a
+- tutorials: Tuesdays at 8a, Thursdays at 8a and 9.45a.
 
 
 ???
@@ -45,106 +53,272 @@ Github orga ist closed/BIO--by invitation only
 # Credits (Leistungsnachweis)
 
 - written exam (90') at the end of the term
-- you may bring one (1) book *with* ISBN number and *without* notes
-- you need to sign up for the exam (OSC)
+- you may bring three (3) pages of handwritten notes (stapled and signed)
+- you must sign up for the exam (PAPI)
 - theoretical and coding questions
-
----
-
-# Reminder
-
-.center[Choose your focus subject by end of October!]
-.center[Schwerpunktwahl bis Ende Oktober!]
 
 ---
 
 # Review (what you should know by now!)
 
 ## Programmieren 1
-- imperative programming in C
+- imperative programming
 - constants, variables, expressions, functions, I/O
 - basic data structures (fields, arrays, lists)
 - pointers &#x263A;
 
 ## Programmieren 2
-- object-oriented programming (OOP) in Java
-- classes and objects (and references! &#x263A;)
+- OOP, classes and objects (and references! &#x263A;)
+- basic data structures (lists, maps, etc.)
 - interfaces and inheritance
 - errors, exceptions and how to deal with them
 
 ---
 
-# Agenda for Programmieren 3
+# Agenda for Software Architecture
 
-See https://hsro-inf-prg3.github.io/ (Syllabus)
+See https://ohm-softa.github.io/ (Syllabus)
+
+- Modularity and component based development
+- UML, mostly class, component and sequence diagrams
+- Programming patterns: idioms, design, architecture
+- Assignments: Tools and Toolkits
+
+
+Assignments are one week "behind"
+
+---
+
+# About this Class
+
+### I'd like you to become better programmers
+
+### Mostly hands-on, live-coding
+
+All examples are found in the `/examples/` directory of the [site's repository](https://github.com/ohm-softa/ohm-softa.github.io/tree/master/examples).
+
+---
+
+# Software Architecture
+
+...is a craft.
+
+- takes practice
+- takes patience
+- takes diligence
+
+
+
+---
+
+# Don't be that guy...
+
+.center[
+![Goto](/assets/xkcd292-goto.png)
+]
+
+.right[
+<https://xkcd.com/292/>
+]
+
+---
+
+# Speaking of `goto`
+
+## Why would you use `goto`?
+
+## Is it possible in Java?
+
+???
+
+to break out of outer loops with labelled loops
+
+---
+
+.center[
+<img src="/assets/xkcd844-good-code.png" width="45%">
+]
+
+.right[
+<https://xkcd.com/844/>
+]
 
 
 ---
 
 # Agenda today
 
-0. _Inform:_<br>
-	Your trusted advisors: [Google](https://google.com) -- [SO](https://stackoverflow.com) -- [Java Docs](https://docs.oracle.com/javase/8/docs/) -- [Google Translate](https://translate.google.com/)
+1. What is software architecture?
+2. What is abstraction?
+3. What is decomposition?
+4. Clean Code
+5. Tools
 
-1. _Memorize:_<br>
-	The git version control system (https://git-scm.com/)
+---
 
-2. _Automate:_<br>
-	The Gradle build tool (https://gradle.org/)
+# Software Architecture
 
-3. _Organize:_<br>
-	The IntelliJ IDEA (https://www.jetbrains.com/idea/)
+Thoughts?
 
-4. _(Optional) Collaborate_<br>
-	Practice cross-repository pull requests and learn about _continuous integration_ (https://travis-ci.org/)
+---
+
+# Software Architecture
+
+## Complexity
+
+- Ideal: linear process (analysis, draft, implementation, test, maintenance)
+- Constrained by: features, budget, time
+- Real world: somethings changes along the way...
+
+## Architecture
+
+- Result of the software development process
+- Components, systems, subsystems, etc.
+- V-model, agile, ..., typically recurrent at some stage
+
+---
+
+# Abstraction
+
+Thoughts?
+
+---
+
+# Abstraction
+
+## high level → low level
+
+- drive to the airport
+- → go straight, right, straight, left, ...
+- →→ clutch, brake, ignition, put in drive, ...
+
+.skip[
+- reduce complexity by removing details
+- goal: model a system from a specific point of view
+]
 
 ???
 
-SO = stackoverflow
+see: H. Stachowiak: Allgemeine Modelltheorie, Springer Verlag, 1973
+
+--- 
+
+# Abstraction
+
+## Example: programming
+
+- hardware instructions
+- assembler (low-level)
+- c, fortran, java (high-level)
+- code generators
 
 ---
 
-# Memorize: The git VCS
+# Decomposition
 
-- [Git](https://git-scm.com) is the _de-facto_ state of the art [version control system](https://en.wikipedia.org/wiki/Version_control).
-- Some of you might remember [CVS (concurrent versions system)](http://savannah.nongnu.org/projects/cvs) or [subversion](https://subversion.apache.org/), geeks might also know of [mercurial](https://www.mercurial-scm.org/).
-- Generally speaking, you should always use a version control system (VCS) when working on code, so you can keep track of changes.
-- Print and laminate: https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
-- For the more visual: http://ndpsoftware.com/git-cheatsheet.html
-- If you run into a mess (and you will): http://justinhileman.info/article/git-pretty/git-pretty.png
+Thoughts?
 
 ---
 
-# Git and feature branches
+# Stepwise Refinement
 
-https://www.atlassian.com/continuous-delivery/continuous-delivery-workflows-with-feature-branching-and-gitflow
+> [...] a sequence of design decisions concerning the decomposition of a task into subtasks and of data into data structures
 
-![Basic CD Workflow](/assets/CDworkflows_basic2.png)
+N. Wirth, "[Program Development by Stepwise Refinement](https://dl.acm.org/citation.cfm?id=362577)", Comm. ACM, 1971
 
----
 
-# Automate: The Gradle Build Tool
-
-![GBT](/assets/gradlebuildtool.png)
-.center[https://gradle.org]
-
-- `gradle init --type java-application` to bootstrap a project
-- `./gradlew build` to use the [Gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) to be independent of locally installed Gradle
-- `apply plugin: 'eclipse'` and `./gradlew eclipse` to generate Eclipse project files
-- `apply plugin: 'idea'` and `./gradlew idea` to generate IntelliJ files (note: these are file-based project descriptions, not the new directory based `.idea/*`)
-
+→ break problem down in simpler problems until solvable
 
 ---
 
-# IntelliJ
+# Functional Decomposition
 
-.center[https://www.jetbrains.com/idea/]
+- Thoughts follow the process
+- Bottom-up/top-down
+
+
+### Example: Withdraw cash at ATM
+
+- insert debit card
+- enter pin
+- select amount
+- process cash
+- ...
 
 ---
 
-# Travis CI
+# Object Oriented Decomposition
 
-- Collaboration means splitting the work
-- Teamwork means working together
-- Use feature branches and automated tests (JUnit)
-- Use automated build and test runner
+> it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. We propose instead that one begins with a list of difficult design decisions or design decisions which are likely to change. Each module is then designed to hide such a decision from the others. Since, in most cases, design decisions transcend time of execution, modules will not correspond to steps in the processing.
+
+D.L. Parnas, "[On the Criteria used in Decomposing Systems into Modules](https://dl.acm.org/citation.cfm?id=361623)", Comm. ACM, 1972
+
+### Modularization and Encapsulation
+
+> Every module [...] is characterized by its knowledge of a design decision which it hides from all others. Its interface or definition was chosen to reveal as little as possible about its inner workings.
+
+→ Coherence and loose/tight coupling
+
+???
+
+probably one of the reasons OOP became so popular...
+
+
+---
+
+# Some Guidelines for Good (OO) Architecture
+
+## High Cohesion, Low Coupling
+
+There should be high cohesion within classes and packages, but low coupling between objects and across packages.
+
+## Law of Demeter
+
+In simple words: "Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.".
+
+K. Liebherr, I. Holland and A. Riel: "[Object-oriented programming: an objective sense of style](https://dl.acm.org/citation.cfm?id=62113)", Proc. OOPSLA, 1988
+
+## High Fan-In, Low Fan-Out
+
+---
+
+# A bit of "Historic" Context
+
+- early days of programming (pre 60s!) focused on procedures
+- the 1970s layed the ground work (see previously cited papers!)
+- 1970: Smalltalk (Xerox PARC; object oriented language)
+- 1973: ML (U Edinburgh; functional language)
+- 90s and 2000s: OOP widely taught as "gold standard", FP often considered "academic"
+- 2010s and onwards: heavy paralellization reintroduced FP (almost hype!)
+	- "old" languages introduce functional elements (Java, C++, ...)
+	- Scala
+	- Actor frameworks, e.g. Akka
+
+---
+
+# Clean Code
+
+<http://www.netlib.org/clapack/cblas/dgemm.c>
+
+---
+
+# Clean Code
+
+- Choose good naming conventions
+- Methods should be short, concise and with few paramters
+- Comments only where needed; rewrite bad code
+- Java conventions?
+	- [Google Java Format](https://github.com/google/google-java-format)
+	- [Elasticsearch](https://github.com/elastic/elasticsearch/blob/master/CONTRIBUTING.md#contributing-to-the-elasticsearch-codebase)
+
+
+---
+
+# Tools
+
+- Your preferred search engine
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/java)
+- [Java documentation](https://docs.oracle.com/javase/11/docs/)
+- JetBrains [IntelliJ](https://www.jetbrains.com/idea/), Community Edition (free!*)
+- [Git version control](https://git-scm.com/)
+

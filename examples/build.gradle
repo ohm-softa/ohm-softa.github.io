@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.9
+sourceCompatibility = 11
 
 ext.junitPlatformVersion = '1.0.0'
 ext.junitJupiterVersion  = '5.0.0'
@@ -42,8 +42,6 @@ dependencies {
     testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
     testRuntime("org.apache.logging.log4j:log4j-core:${log4jVersion}")
     testRuntime("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
-    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
-
 }
 
 junitPlatform {

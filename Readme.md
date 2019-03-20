@@ -42,7 +42,8 @@ The class will be taught in German, the materials are mostly in English.
 ## Syllabus
 - **Introduction (March 21, [slides](/01s-intro/), [assignments](https://github.com/ohm-softa/01-tools/))**
 	
-	With a few examples we dig right into the necessary tools of a (Java) software engineer: Git, IntelliJ, and of course: [Google](https://www.google.com), [SO](https://www.stackoverflow.com) and the [Java docs](http://docs.oracle.com/javase/8/docs/).
+	We'll talk about software architecture, abstraction, decomposition and good software design.
+	We'll also review the tools and ressources that you'll need for this class.
 
 - **Classes and Interfaces revisited (March 28, [slides](/02s-classes-interfaces/), [lecture notes](/02ln-classes-interfaces/), [assignments](https://github.com/ohm-softa/02-classes-interfaces/))**
 	
@@ -88,22 +89,21 @@ The class will be taught in German, the materials are mostly in English.
 	Because sometimes, you need to work on more than one thing at a time!
 	Learn about a better `Future` for asynchronous/concurrent workloads, and what _promise chaining_ can do for you.
 
-- **Dependency Injection (June 13, materials tba)**
-	
-	Singletons are actually a bad idea, most of the time.
-	Dependency injection (DI) uses _dependency inversion_ together with a mechanism to organize instances.
-
-> _No class and assignments on June 20 (Corpus Christi/Fronleichnam)_
-
-- **Introduction to functional programming (June 27, [slides](/12s-fp1/), [lecture notes](/12ln-fp1/), [assignments](https://github.com/ohm-softa/12-functional-cli))**
+- **Introduction to functional programming (June 13, [slides](/12s-fp1/), [lecture notes](/12ln-fp1/), [assignments](https://github.com/ohm-softa/12-functional-cli))**
 	
 	Leave your imperative and objected oriented programming comfort zone and follow me down the rabbit hole of functional programming.
 	After some theory, we'll do some basic exercises, including `filter`, `map` and `forEach`.
 
-- **Functional programming in Java (July 4, [slides](/13s-fp2/), [lecture notes](/13ln-fp2/), [assignments](https://github.com/ohm-softa/13-map-reduce-collect))**
+> _No class and assignments on June 20 (Corpus Christi/Fronleichnam)_
+
+- **Functional programming in Java (June 27, [slides](/13s-fp2/), [lecture notes](/13ln-fp2/), [assignments](https://github.com/ohm-softa/13-map-reduce-collect))**
 
 	We'll talk about the specifics (and limits) of functional programming in Java.
 	Learn about the classes and interfaces used for Java's functional parts, and the more sophisticated stream reduction using `reduce` and `collect`.
 
+- **Dependency Injection (July 4, materials tba)**
+	
+	Singletons are actually a bad idea, most of the time.
+	Dependency injection (DI) uses _dependency inversion_ together with a mechanism to organize instances. 
 
 _Subscribe to [https://github.com/ohm-softa/ohm-softa.github.io](https://github.com/ohm-softa/ohm-softa.github.io) repository to follow updates._

@@ -1,6 +1,7 @@
-_site/
+.DS_Store
 .idea
-.sass-cache/
+.sass-cache
 .jekyll-metadata
 Gemfile.lock
-.DS_Store
+_site/
+moodle-key.asc
