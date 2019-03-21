@@ -1,7 +1,7 @@
 # Software Architecture
 
 
-_Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studium/bachelorstudiengang-informatik/) at the [Technical University of Applied Sciences Nuremberg](https://www.th-nuernberg.de). --- Pflichtmodul im [Bachelorstudiengang Informatik](https://www.th-nuernberg.de/fakultaeten/in/studium/bachelorstudiengang-informatik/) an der [Technischen Hochschule Nürnberg](https://www.th-nuernberg.de)._
+_Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studium/bachelorstudiengang-informatik/) at the [Nuremberg Institute of Technology Georg Simon Ohm](https://www.th-nuernberg.de). --- Pflichtmodul im [Bachelorstudiengang Informatik](https://www.th-nuernberg.de/fakultaeten/in/studium/bachelorstudiengang-informatik/) an der [Technischen Hochschule Nürnberg](https://www.th-nuernberg.de)._
 
 
 ## Class Schedule
