@@ -119,3 +119,6 @@ _Einführung durch Artikelsammlung in die einzelnen Themen und Anwendung mit Üb
 
 - Generics raus? Oder kompakter?
 - DI?
+
+
+TODO: Liskovsches Substitutionsprinzip (--> Kap 3)
