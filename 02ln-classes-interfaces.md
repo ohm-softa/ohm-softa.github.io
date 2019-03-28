@@ -447,22 +447,32 @@ Consider this example:
 
 ```java
 @FunctionalInterface
-interface BiFunction {
-	Object apply(Object a, Object b);
+interface BiFunction<T, U, R> {
+	R apply(T a, U b);
 }
 ```
 ```java
-class SomeObject implements BiFunction {
-	public Object apply(Object o) {
-		System.out.println(o);
-		return null;
+class SomeClass {
+	public String someMethod(Object o) {
+		return o.toString();
 	}
+
 	public static void main(String[] args) {
-		SomeObject so = new SomeObject();
-		BiFunction bf = so::apply;
+		BiFunction<SomeClass, Object, String> bf = (c, o) -> {
+			return o.toString();
+		};
+
+		// or using reference
+		bf = SomeClass::someMethod;
+		
+		// now use as:
+		SomeClass so = new SomeClass();
+		bf.apply(so, new Object());
 	}
 }
 ```
+
+Effectively, 
 
 We'll review method references in the last two chapters of this class, when we're discussing Java's functional programming capabilities.
 

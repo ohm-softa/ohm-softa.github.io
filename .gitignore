@@ -4,4 +4,5 @@
 .jekyll-metadata
 Gemfile.lock
 _site/
+examples/src/main/java/livecoding
 moodle-key.asc
