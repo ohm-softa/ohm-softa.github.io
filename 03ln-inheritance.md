@@ -37,6 +37,10 @@ class Rectangle extends Shape implements Drawable {
 		width = w;
 		height = h;
 	}
+	void setWidth(int w) { width = w; }
+	void setHeight(int h) { height = h; }
+	int getWidth() { return width; } 
+	int getHeight() { return height; }
 	public void draw(Canvas c) { /* do some magic */ }
 }
 ```
@@ -49,6 +53,78 @@ Following the semantics of the keywords, you should
 - _extend_ a class, when you aim to make something more specific; a `Rectangle` will always be a `Shape`.
 - _implement_ an interface, when you aim to extend a class by certain (potentionally orthogonal) functionality; not every `Shape` might be drawable, and there might be other classes which happen to be drawable.
 
+
+# Liskov Substitution Principle (LSP)
+
+If a `class B extends A`, we can use any instance of `B` where an `A` is needed.
+
+```java
+class Program {
+	static void work(Shape s) { /* ... */ }
+	public static void main(String... args) {
+		Shape s = new Shape(0, 0);
+		Rectangle r = new Rectangle(0, 0, 10, 15);
+
+		work(s);
+		work(r);  // Rectangle is subtype of Shape
+	}
+```
+
+This makes sense and is syntactically verified by the compiler.
+However, if you think about the _behavior_ of objects of subtypes, we need to be careful.
+Good object oriented design also ensures **(strong) behavioral subtyping**, as defined by Barbara Liskov and Jeanette Wing in their 1994 paper:
+
+> Subtype Requirement: Let ϕ(z) be a property provable about objects x of type T. Then ϕ(y) should be true for objects y of type S where S is a subtype of T.
+
+_Barbara Liskov and Jeanette M. Wing: A Behavioral Notion of Subtyping, ACM Transactions on Programming Languages and Systems, Vol 16, No. 6, November 1994, Pages 1811-1841._
+
+Or in simpler terms, from the same paper, 
+
+> For example, stacks and queues nught both have a put method to add an element and a get method to remove one.
+> According to the contravariance rule, either could be a legal subtype of the other.
+> However, a program written in the expectation that x is a stack is unlikely to work correctly if x actually denotes a queue, and vice versa.
+
+Still to abstract?
+How about this example: A square is a rectangle, right?
+We'll just ensure equal `width` and `height`:
+
+```java
+class Square extends Rectangle {
+	Square(int x, int y, int w) {
+		super(x, y, w, w);
+	}
+	void setWidth(int w) {
+		super.setWidth(w);
+		super.setHeight(w);
+	}
+	void setHeight(int w) {
+		setWidth(w);
+	}
+}
+```
+
+Now imagine the following code:
+
+```java
+class Program {
+	static void ensureLiskov(Rectangle r) {
+		r.setWidth(10);
+		r.setHeight(15);
+
+		assert r.getWidth == 10;
+	}
+	public static void main(String... args) {
+		Rectangle r = new Rectangle(0, 0, 5, 5);
+		ensureLiskov(r);
+
+		Square s = new Square(0, 0, 5);
+		ensureLiskov(s);  // assertion failed!
+	}
+}
+```
+
+The key point of Liskov's substitution principle is that while the _syntactical_ correctness can be verified by the compiler, the _behavioral_ correctness needs to be assured by the developer.
+Thus, be very careful when using inheritance, and make sure your overrides do not violate the LSP.
 
 
 # Abstract Classes
