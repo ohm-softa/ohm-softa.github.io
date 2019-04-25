@@ -122,3 +122,8 @@ _Einführung durch Artikelsammlung in die einzelnen Themen und Anwendung mit Üb
 
 
 TODO: Liskovsches Substitutionsprinzip (--> Kap 3)
+
+
+# Sommersemester 2019 (THN)
+
+- Generics 1 viel zu kurz; mit 2 verbinden und Mixins separat mit Decorator?

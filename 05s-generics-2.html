@@ -143,8 +143,8 @@ public interface StatefulEscalate2 extends Stateful {
 
 	default String escalated() {
 		// no typecast... generic methods ftw!
-		int n = getState(this, StatefulEscalate2.class, 0);
-		setState(this, StatefulEscalate2.class, n+1);
+		int n = getState(StatefulEscalate2.class, 0);
+		setState(StatefulEscalate2.class, n+1);
 
 		String bangs = Stream.generate(() -> "!")
 			.limit(n).reduce("", (a, b) -> a + b);
@@ -198,6 +198,12 @@ public class App {
 	}
 }
 ```
+
+---
+
+# Final Class Hierarchy
+
+![Mixin Stateful](/assets/mixin-stateful.svg)
 
 ---
 
