@@ -1,7 +1,10 @@
-group 'de.fhro.inf.prg3'
-version '1.0-SNAPSHOT'
+plugins {
+    id "java"
+    id "io.freefair.lombok" version "3.2.1"
+}
 
-apply plugin: 'java'
+group 'ohm-softa'
+version '1.0-SNAPSHOT'
 
 sourceCompatibility = 11
 
@@ -9,20 +12,10 @@ ext.junitPlatformVersion = '1.0.0'
 ext.junitJupiterVersion  = '5.0.0'
 ext.log4jVersion         = '2.9.0'
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
-    }
-}
 
 repositories {
     mavenCentral()
 }
-
-apply plugin: 'org.junit.platform.gradle.plugin'
 
 dependencies {
     compile files('libs/javakara-x.jar')
@@ -37,14 +30,14 @@ dependencies {
     compile ("com.squareup.retrofit2:retrofit:2.3.0")
     compile ("com.squareup.retrofit2:converter-gson:2.3.0")
     compile("org.apache.commons:commons-lang3:3.8.1")
-    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
-    testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
+    
     testRuntime("org.apache.logging.log4j:log4j-core:${log4jVersion}")
     testRuntime("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
 }
 
-junitPlatform {
-    logManager 'org.apache.logging.log4j.jul.LogManager'
-    reportsDir file('build/test-results/junit-platform') // this is the default
+test {
+    useJUnitPlatform()
 }

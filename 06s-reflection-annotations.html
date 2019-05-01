@@ -182,3 +182,49 @@ GitHubService service = retrofit.create(GitHubService.class);
 
 Call<List<Repo>> repos = service.listRepos("octocat");
 ```
+
+---
+
+# Annotations: Lombok
+
+> Java is so lame, it doesn't even support properties.
+
+```java
+class SoMuchBoilerplate {
+    private String hidden;
+
+    // simple constructor
+    SoMuchBoilerplate(String h) {
+        hidden = h;
+    }
+
+    // public getter
+    public int getHidden() {
+        return hidden;
+    }
+    
+    // package setter
+    void setHidden(String h) { 
+        hidden = h;
+    }
+
+    // basic toString for debug
+    public String toString() {
+        return "SoMuchBoilerplate(" + "hidden=" + hidden + ")");
+    }
+}
+```
+
+---
+
+# Annotations: Lombok
+
+Fear not, [Lombok](https://projectlombok.org/)'s annotation processor has you covered.
+
+```java
+@Data
+SoMuchBoilerplate {
+    @NonNull @Setter(AccessLevel.PACKAGE)
+    private int hidden;
+}
+```

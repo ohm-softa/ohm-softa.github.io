@@ -474,8 +474,8 @@ Klass obj2 = gson.fromJson(json, Klass.class);
 - [Hibernate](http://hibernate.org/): sophisticated object storage
 - [Butterknife](http://jakewharton.github.io/butterknife/): GUI bindings for Android ridiculously simplified
 - [Retrofit](https://github.com/square/retrofit): consume REST interfaces without any pain
+- [Lombok](https://projectlombok.org/): avoid writing boilerplate code such as setter, `toString`s etc.
 
-
-> Historic remark: The APT was removed in Java8, see <http://openjdk.java.net/jeps/117>
+> Historic remark: The APT was removed in Java 8, see <http://openjdk.java.net/jeps/117>
 
 <p style="text-align: right">&#8718;</p>
