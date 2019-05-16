@@ -204,7 +204,7 @@ To have kara explore the whole room (starting from the center), you could think 
 - walk concentric growing circles until the room is fully explored
 - walk to the top-right corner; then sweep left-to-right, top-to-bottom.
 
-The sample code can be found in <https://github.com/hsro-inf-prg3/hsro-inf-prg3.github.io/tree/master/examples/src/main/java/designpattern/strategy>.
+The sample code can be found in <https://github.com/ohm-softa/ohm-softa.github.io/tree/master/examples/src/main/java/designpattern/strategy>.
 Check out the `StrategyExampleBad`, which has two explicit plans, `planA()` and `planB()`.
 Contrast it with the implementation in `StrategyExample`: here, the logic of the strategy is moved to a separate class which is instantiated as needed.
 
