@@ -84,10 +84,10 @@ The class will be taught in German, the materials are mostly in English.
 
 > _No class and assignments on May 30 (Ascension Day/Christi Himmelfahrt)_
 
-- **Parallel processing revisited (June 6, materials tba)**
+- **Parallel and asynchronous processing (June 6, [slides](/14s-parallel-async/), [lecture notes](/14ln-parallel-async/), [assignments](https://github.com/ohm-softa/11-futures-cli))**
 
 	Because sometimes, you need to work on more than one thing at a time!
-	Learn about a better `Future` for asynchronous/concurrent workloads, and what _promise chaining_ can do for you.
+	Learn about a better `Future` for asynchronous or concurrent workloads, and what _promise chaining_ can do for you.
 
 - **Introduction to functional programming (June 13, [slides](/12s-fp1/), [lecture notes](/12ln-fp1/), [assignments](https://github.com/ohm-softa/12-functional-cli))**
 	
@@ -101,9 +101,8 @@ The class will be taught in German, the materials are mostly in English.
 	We'll talk about the specifics (and limits) of functional programming in Java.
 	Learn about the classes and interfaces used for Java's functional parts, and the more sophisticated stream reduction using `reduce` and `collect`.
 
-- **Dependency Injection (July 4, materials tba)**
+- **Patterns of modern software architecture (July 4, materials tba)**
 	
-	Singletons are actually a bad idea, most of the time.
-	Dependency injection (DI) uses _dependency inversion_ together with a mechanism to organize instances. 
+	We're wrapping up the semester by talking about patterns of modern software architecture, such as 	dependency injection or microservices.
 
 _Subscribe to [https://github.com/ohm-softa/ohm-softa.github.io](https://github.com/ohm-softa/ohm-softa.github.io) repository to follow updates._
