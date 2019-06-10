@@ -294,7 +294,7 @@ Outer.Inner oi = new Outer().new Inner();
 
 ### Anonymous Classes
 
-Far more often, you will be using anonymous innter classes.
+Far more often, you will be using anonymous inner classes.
 Recall the sorting function `java.util.Collections.sort(List<T> list, Comparator<? super T> c)` (ignore the `<...>` for now).
 You might have used this as follows:
 
