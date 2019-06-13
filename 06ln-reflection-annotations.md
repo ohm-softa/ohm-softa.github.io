@@ -265,7 +265,7 @@ However, newer versions of Java have a sophisticated [system of permissions and 
 Two things that do _not_ work, at least out of the box:
 - While you can do a forced write on `final` _fields_, this typically does not affect the code at runtime, since the values are already bound at compiletime.
 - It is impossible to swap out _methods_ since class definitions are read-only and read-once.
-	If you wanted to facilitate that, you would have to write your own class loader.
+	If you wanted to facilitate that, you would have to write your own class loader or you could use the decorator pattern.
 
 
 ## Object Comparison
