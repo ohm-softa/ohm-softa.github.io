@@ -378,7 +378,7 @@ Even annotations can be annotated.
 _Meta annotations_ define where and how annotations can be used.
 
 - `@Target({ElementType.FIELD, ElementType.METHOD})`: Use this to limit your custom annotation to fields or methods.
-- `@Retention(RetentionPolicy.{RUNTIME,CLASS,SOURCE)}`: This controls if the annotation is available at runtime, in the class file, or only in the source code.
+- `@Retention(RetentionPolicy.{RUNTIME,CLASS,SOURCE})`: This controls if the annotation is available at runtime, in the class file, or only in the source code.
 - `@Inherited`: Use this to make an annotation to be passed on to deriving classes.
 
 
