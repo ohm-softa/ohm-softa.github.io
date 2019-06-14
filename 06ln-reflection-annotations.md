@@ -362,7 +362,7 @@ This defines the annotation `@Fixed(...)` with three arguments; the last one is 
 void method() { ... }
 ```
 
-In general, there are _marker anotations_ (e.g. `@Deprecated`) without arguments, _value annotations_ (e.g. `@SuppressWarnings("...")`) that take exactly one value, and more sophisticated annotations (e.g. `@Fixed(...)` above).
+In general, there are _marker annotations_ (e.g. `@Deprecated`) without arguments, _value annotations_ (e.g. `@SuppressWarnings("...")`) that take exactly one value, and more sophisticated annotations (e.g. `@Fixed(...)` above).
 
 ```java
 public @interface SomeValue {
