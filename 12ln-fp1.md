@@ -83,7 +83,7 @@ Function<Integer, Integer> square3 = i -> i * i;
 
 So what's the big deal with functional programming?
 
-1. Since objects are immutable, parallization is (almost) trivial (you may have heard of [map-reduce](https://de.wikipedia.org/wiki/MapReduce)).
+1. Since objects are immutable, parallelization is (almost) trivial (you may have heard of [map-reduce](https://de.wikipedia.org/wiki/MapReduce)).
 2. _Separation of Concerns (SoC)_: FP helps you to separate the _data traversal_ (how you _iterate_ the data) from the _business logic_ (what you _do_ with the data).
 
 Let me illustrate this with a simple example (will go through it in detail at the end of the chapter).
