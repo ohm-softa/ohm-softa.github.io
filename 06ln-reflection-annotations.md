@@ -362,7 +362,7 @@ This defines the annotation `@Fixed(...)` with three arguments; the last one is 
 void method() { ... }
 ```
 
-In general, there are _marker anotations_ (e.g. `@Deprecated`) without arguments, _value annotations_ (e.g. `@SuppressWarnings("...")`) that take exactly one value, and more sophisticated annotations (e.g. `@Fixed(...)` above).
+In general, there are _marker annotations_ (e.g. `@Deprecated`) without arguments, _value annotations_ (e.g. `@SuppressWarnings("...")`) that take exactly one value, and more sophisticated annotations (e.g. `@Fixed(...)` above).
 
 ```java
 public @interface SomeValue {
@@ -378,7 +378,7 @@ Even annotations can be annotated.
 _Meta annotations_ define where and how annotations can be used.
 
 - `@Target({ElementType.FIELD, ElementType.METHOD})`: Use this to limit your custom annotation to fields or methods.
-- `@Retention(RetentionPolicy.{RUNTIME,CLASS,SOURCE)}`: This controls if the annotation is available at runtime, in the class file, or only in the source code.
+- `@Retention(RetentionPolicy.{RUNTIME,CLASS,SOURCE})`: This controls if the annotation is available at runtime, in the class file, or only in the source code.
 - `@Inherited`: Use this to make an annotation to be passed on to deriving classes.
 
 
