@@ -70,7 +70,7 @@ The class will be taught in German, the materials are mostly in English.
 	
 	Learn how reflection works in Java, and how they enable annotations by using examples of testing ([JUnit5](http://junit.org/junit5/)), serialization ([gson](https://github.com/google/gson)) and networking ([retrofit](https://github.com/square/retrofit)).
 
-- **Design patterns, pt. 1 (May 9, [slides](/07s-iterator-composite-observer/), [lecture notes](/07ln-iterator-composite-observer/), assignments: [JavaFX (recommended)](https://github.com/ohm-softa/07-composite-observer-jfx) or [Android (advanced)](https://github.com/ohm-softa/07-composite-observer))**
+- **Design patterns, pt. 1 (May 9, [slides](/07s-iterator-composite-observer/), [lecture notes](/07ln-iterator-composite-observer/), assignments: [JavaFX (recommended)](https://github.com/ohm-softa/07-composite-observer-jfx) or [Android (advanced)](https://github.com/ohm-softa/07-composite-observer-android))**
 
 	We begin with a few basic patterns: composite, iterator and observer, and use that to dive into Android and MVC/MVVC.
 
