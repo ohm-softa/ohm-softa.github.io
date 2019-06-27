@@ -105,7 +105,7 @@ Let's consider another example: joining Strings together by concatenating them.
 ```java
 static String join(List<String> xs, String z) {
 	if (xs.isEmpty()) return z;
-	else return join(xs.tail, z + xs.head));
+	else return join(xs.tail, z + xs.head);
 }
 ```
 
@@ -129,9 +129,11 @@ static int reduce(List<Integer> xs, int z) {
 	if (xs.isEmpty()) return z;
 	else return sum(xs.tail, Integer.sum(z, xs.head));
 }
+
+import org.apache.commons.lang3.StringUtils;
 static String reduce(List<String> xs, String z) {
 	if (xs.isEmpty()) return z;
-	else return join(xs.tail, z.concat(xs.head));
+	else return join(xs.tail, StringUtils.join(z, xs.head));
 }
 ```
 
@@ -281,7 +283,7 @@ Again, look at the order of operations:
       7   z
 ```
 
-To complete the top most operation, you need decend all the way down the fold.
+To complete the top most operation, you need descend all the way down the fold.
 
 Again, does that look familar?
 If we define `z` as a list and `op` as the list construction, we end up with `append`:

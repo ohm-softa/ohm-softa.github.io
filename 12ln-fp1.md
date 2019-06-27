@@ -89,7 +89,7 @@ So what's the big deal with functional programming?
 Let me illustrate this with a simple example (will go through it in detail at the end of the chapter).
 Say you want to
 - retrieve all students from a database,
-- filter out those who took _Programmieren 3_,
+- filter out those who took _Softwarearchitektur_,
 - load (all of) their transcript of records from another database
 - print all class names
 
@@ -97,7 +97,7 @@ Say you want to
 // code in src/fplive/{Database,Student,Transcript,Record}.java
 // data in src/resources/{students,tors}.json
 for (Student s : Database.getStudents()) {
-	if (s.getClasses().contains("Programmieren 3")) {
+	if (s.getClasses().contains("Softwarearchitektur")) {
 		Transcript tr = Database.getToR(s.getMatrikel());
 		for (Record r : tr)
 			System.out.println(r);
@@ -515,7 +515,7 @@ Recall the (iterative) example from the very top: retrieve a list of students, f
 
 ```java
 for (Student s : Database.getStudents()) {
-	if (s.getClasses().contains("Programmieren 3")) {
+	if (s.getClasses().contains("Softwarearchitektur")) {
 		Transcript tr = Database.getToR(s.getMatrikel());
 		for (Record r : tr)
 			System.out.println(r);
@@ -527,7 +527,7 @@ In functional Java, this becomes (in a most detailed variant)
 
 ```java
 Database.getStudents().stream()
-	.filter(s -> s.getClasses().contains("Programmieren 3"))
+	.filter(s -> s.getClasses().contains("Softwarearchitektur"))
 	.map(Student::getMatrikel)
 	.map(Database::getToR)
 	.flatMap(t -> t.records.stream())  // stream of lists to single list
