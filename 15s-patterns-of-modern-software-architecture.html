@@ -1,0 +1,264 @@
+---
+layout: presentation
+title: "Patterns of Modern Software Architecture"
+permalink: /15s-patterns-of-modern-software-architecture/
+---
+
+layout: true
+
+<footer>
+    <span class="icon github">
+    <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+    </svg>
+    </span>
+    <a href="https://github.com/sikoried"><span class="username">sikoried</span></a>
+</footer>
+
+---
+
+# Patterns of Modern Software Architecture
+
+Korbinian Riedhammer
+
+
+---
+
+# Design = Architecture
+
+_&raquo; The goal of software architecture is to minimize the human resources required to build and maintain the required system. &laquo;_
+
+
+<div style="text-align: center; margin-top: 5%">
+<a href="https://www.amazon.de/Clean-Architecture-Softwarearchitekturen-Praxis-Handbuch-Softwarestrukturierung/dp/395845724X/"><img style="width: 25%" src="{{site.baseurl}}/assets/clean-arch.jpg"></a>
+<a href="https://www.amazon.de/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/"><img style="width: 25%" src="{{site.baseurl}}/assets/clean-arch-de.jpg"></a>
+</div>
+
+.right[Robert C Martin (_Uncle Bob_). Clean Architecture]
+
+???
+
+Ein interessanter Nachmittag...
+
+---
+
+# Software Architecture Patterns
+
+### Layered
+### Event-driven
+### Microkernel
+### Microservices
+
+.tiny[.right[_Figures taken from Mark Richards: Software Architecture Patterns, Wiley, 2015._]]
+
+---
+
+# Layered Architecture
+
+- components organized into horizontal layers
+- layers represent a specific role within the application
+
+.center[
+<img style="width: 70%" src="{{site.baseurl}}/assets/sapr_0101.png">
+]
+
+---
+
+# Layered Architecture (cont'd)
+
+.center[
+<img style="width: 60%" src="{{site.baseurl}}/assets/sapr_0102.png">
+]
+
+- separation of concern among components; clear interfaces between layers
+- components within a specific layer deal only with logic that pertains to that layer
+- _layers of isolation_: no skipping of closed layers
+
+???
+
+Example: change GUI toolkit, retain logic and persistence
+
+---
+
+# Layered Architecture (cont'd)
+
+.center[
+<img style="width: 60%" src="{{site.baseurl}}/assets/sapr_0103.png">
+]
+
+- exception: if a layer would mostly forward requests
+- example: service layer
+	- unreachable for presentation
+	- bypassable for business
+
+--- 
+
+# Layered Architecture: Example
+
+.center[
+<img style="width: 70%" src="{{site.baseurl}}/assets/sapr_0101.png">
+]
+
+???
+
+DAO = database access object
+
+---
+
+# Layered Architecture
+
+### Discussion
+
+- solid general purpose pattern
+- easy to implement and test
+- watch out for _architecture sinkhole anti-pattern:_ requests flow through multiple layers with little to no logic performed
+- tends to lead to monolithic designs
+
+---
+
+# Event-driven Architecture
+
+- highly decoupled, single-purpose event processing components
+- asynchronous event processing
+- two main topologies
+	- mediator
+	- broker
+
+---
+
+# Event-driven Architecture: Mediator
+
+
+.center[
+<img style="width: 70%" src="{{site.baseurl}}/assets/sapr_0201.png">
+]
+
+
+---
+
+# Event-driven Architecture: Mediator Example
+
+
+.center[
+<img style="width: 70%" src="{{site.baseurl}}/assets/sapr_0202.png">
+]
+
+---
+
+# Event-driven Architecture: Broker
+
+
+.center[
+<img style="width: 70%" src="{{site.baseurl}}/assets/sapr_0203.png">
+]
+
+---
+
+# Event-driven Architecture: Broker Example
+
+
+.center[
+<img style="width: 55%" src="{{site.baseurl}}/assets/sapr_0204.png">
+]
+
+---
+
+# Event-driven Architecture: Discussion
+
+- excellent scalability and unit-testing
+- asynchronicity brings complexity, eg.
+	- remote process availability
+	- lack of responsiveness
+	- broker reconnection logic in the event of a broker or mediator failure
+- lack of atomic transactions for business processes
+- requires discipline regarding event format (eg. JSON)
+- end-to-end testing hard
+
+---
+
+# Microkernel Architecture
+
+### Or: Plugin Architecture
+
+.center[
+<img style="width: 65%" src="{{site.baseurl}}/assets/sapr_0301.png">
+]
+
+---
+
+# Microkernel Architecture
+
+- make your product flexible in terms of features and extensibility
+- core has minimum functionality, foremost plugin handling (registry)
+- keep communication/dependency among plugins to minimum
+- plugin-core-connection
+	- OSGi (open service gateway initiative)
+	- messaging
+	- web services 
+	- direct point-to-point binding (i.e., object instantiation)
+- example: photoshop :-)
+
+---
+
+# Microservices Architecture
+
+An alternative to monolithic applications.
+
+- central concept: separately deployed units
+	- easier deployment through an effective and streamlined delivery pipeline
+	- increased scalability
+	- high degree of application and component decoupling
+- service components that act in bounded context
+- the hard part: getting the granularity right
+
+
+See <https://www.bmc.com/blogs/microservices-vs-soa-whats-difference/> for a good differentiation to service oriented architecture (SOA).
+
+---
+
+# Microservices Architecture (cont'd)
+
+### Variant: API REST-based
+
+.center[
+<img style="width: 65%" src="{{site.baseurl}}/assets/sapr_0402.png">
+]
+
+---
+
+# Microservices Architecture (cont'd)
+
+### Variant: Application REST-based
+
+.center[
+<img style="width: 65%" src="{{site.baseurl}}/assets/sapr_0403.png">
+]
+
+- similar to API REST-based, but requests from browser or fat-client
+
+---
+
+# Microservices Architecture (cont'd)
+
+### Variant: Centralized Messaging System
+
+.center[
+<img style="width: 45%" src="{{site.baseurl}}/assets/sapr_0404.png">
+]
+
+- typical for larger-scale application
+- allows for advanced queuing mechanisms, asynchronous messaging, monitoring, error handling, and better overall load balancing and scalability
+
+---
+
+# Microservices Architecture: Discussion
+
+- vital to get the granularity right
+	- too fine: scaling or communication hell
+	- too coarse: no benefit
+- inter-service communication should use database instead of tight coupling
+- excellent testing capabilities
+- excellent deployment: "hot-swap" instances until no old instance left
+- ideal for containerization
+

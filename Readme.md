@@ -101,7 +101,7 @@ The class will be taught in German, the materials are mostly in English.
 	We'll talk about the specifics (and limits) of functional programming in Java.
 	Learn about the classes and interfaces used for Java's functional parts, and the more sophisticated stream reduction using `reduce` and `collect`.
 
-- **Patterns of modern software architecture (July 4, materials tba)**
+- **Patterns of modern software architecture (July 4, [slides](/15s-patterns-of-modern-software-architecture/))**
 	
 	We're wrapping up the semester by talking about patterns of modern software architecture, such as 	dependency injection or microservices.
 
