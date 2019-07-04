@@ -45,12 +45,13 @@ Ein interessanter Nachmittag...
 
 # Software Architecture Patterns
 
-### Layered
-### Event-driven
-### Microkernel
-### Microservices
+### Layered Architecture
+### Service Oriented Architecture
+### Event-driven Architecture
+### Microkernel Architecture
+### Microservices Architecture
 
-.tiny[.right[_Figures taken from Mark Richards: Software Architecture Patterns, Wiley, 2015._]]
+.tiny[.right[_Most figures taken from Mark Richards: Software Architecture Patterns, Wiley, 2015._]]
 
 ---
 
@@ -117,6 +118,36 @@ DAO = database access object
 
 ---
 
+# Service Oriented Architecture (SOA)
+
+.center[
+<img style="width: 70%" src="{{site.baseurl}}/assets/ibm_soa.gif">
+]
+
+.right[Source: ibm.com]
+
+---
+
+# SOA: Principles
+
+- **standardized service contract**: specified through one or more service description documents.
+- **loose coupling**: services are designed as self-contained components, maintain relationships that minimize dependencies on other services
+- **abstraction**: services are completely defined by service contracts and description documents; logic is hidden and encapsulated within their implementation
+- **reusability**: designed as components, services can be reused more effectively, thus reducing development time
+- **autonomy**: services have control over the logic they encapsulate
+- **discoverability**: services are defined by description documents and listed in a service discovery
+- **composability**: services are building blocks for applications
+
+---
+
+# SOA: Discussion
+
+- autonomy helps for reusability, maintenance and deployment
+- high (initial) investment to specify architecture
+- high overhead: every service needs to do input parameter validation
+
+---
+
 # Event-driven Architecture
 
 - highly decoupled, single-purpose event processing components
@@ -164,7 +195,9 @@ DAO = database access object
 
 ---
 
-# Event-driven Architecture: Discussion
+# Event-driven Architecture
+
+### Discussion
 
 - excellent scalability and unit-testing
 - asynchronicity brings complexity, eg.
@@ -174,6 +207,16 @@ DAO = database access object
 - lack of atomic transactions for business processes
 - requires discipline regarding event format (eg. JSON)
 - end-to-end testing hard
+
+---
+
+# Event-driven Architecture
+
+### Toolkits
+
+- Apacha Kafka: <https://kafka.apache.org/>
+- Otto: application-based event bus <https://square.github.io/otto/>
+- Reactive Programming: <https://github.com/ReactiveX/RxJava>
 
 ---
 
@@ -252,7 +295,9 @@ See <https://www.bmc.com/blogs/microservices-vs-soa-whats-difference/> for a goo
 
 ---
 
-# Microservices Architecture: Discussion
+# Microservices Architecture
+
+### Discussion
 
 - vital to get the granularity right
 	- too fine: scaling or communication hell
@@ -260,5 +305,15 @@ See <https://www.bmc.com/blogs/microservices-vs-soa-whats-difference/> for a goo
 - inter-service communication should use database instead of tight coupling
 - excellent testing capabilities
 - excellent deployment: "hot-swap" instances until no old instance left
-- ideal for containerization
+- ideal for containerization → simple orchestration!
+
+---
+
+# Microservices vs. SOA
+
+
+- SOA requires all participants to know the common communication mechanism
+- In SOA, services (typically) share data storage; microservices maintain their own
+- SOA may entail microservices
+
 
