@@ -111,7 +111,7 @@ Why woud you do this? ¯\\_(ツ)_/¯
 
 No seriously.
 It has to do with serialization: attributes of enums are not serialized (which can be a good or bad thing, it depends).
-Most developers opt for the _lazy initialization_ method, since it makes the initializaion more controllable.
+Most developers opt for the _lazy initialization_ method, since it makes the initialization more controllable.
 
 
 ## Structure and Participants
@@ -126,7 +126,7 @@ Most developers opt for the _lazy initialization_ method, since it makes the ini
 ## Discussion
 
 Singletons are standard practice to avoid resource conflicts or overallocation.
-However, they are at the same time (strongly) disencouraged if working in a multi-threaded (parallel) environment: while the actual resource conflict can be (usually) solved with locking, the process itself may dramatically reduce the benefit of parallel processing.
+However, they are at the same time (strongly) discouraged if working in a multi-threaded (parallel) environment: while the actual resource conflict can be (usually) solved with locking, the process itself may dramatically reduce the benefit of parallel processing.
 
 For advanced developers: Favor [_dependency injection_](https://en.wikipedia.org/wiki/Dependency_injection) over singletons.
 
@@ -269,7 +269,7 @@ class KlassImpl implements Klass {
 }
 ```
 
-So from outside the package, you can't instanciate `KlassImpl`:
+So from outside the package, you can't instantiate `KlassImpl`:
 
 ```java
 package someApp;
@@ -280,14 +280,14 @@ class MyApp {
 }
 ```
 
-This is where you need a factory method, often attached to an abstract class or as a default method to an interface.
+This is where you need a factory method, often attached to an abstract class or as a static method to an interface.
 
 ```java
 package mypackage;
 
 public interface Klass {
 	void method();
-	default Klass create() {
+	static Klass create() {
 		return new KlassImpl();  // inside package: visible!
 	}
 }
@@ -383,7 +383,7 @@ root.add(nested);
 System.out.println(root);
 ```
 
-As you can see, you only need to replace the factory that produces the concrete clases; the construction logic remains the same.
+As you can see, you only need to replace the factory that produces the concrete classes; the construction logic remains the same.
 
 You can find the above example code at <https://github.com/hsro-inf-prg3/hsro-inf-prg3.github.io/tree/master/examples/src/main/java/designpattern/factory>.
 
@@ -417,7 +417,7 @@ The package would then expose a _factory_ that allows to generate instances that
 Typically objects that are either complicated to instantiate or which should not be exposed outside of a package.
 
 - Iterators (probably the most frequently used factory)
-- Objects that have complex intantiation protocols
+- Objects that have complex instantiation protocols
 - Logging instances
 - API wrappers
 
@@ -584,7 +584,7 @@ Building up a stack of actions automatically leads to adopting the command patte
 
 - Editors that support undo or macros
 - Databases with transaction/rollback support
-- Filesystems with journalling
+- Filesystems with journaling
 - Version control (eg. git)
 - Realizations of automatons
 
