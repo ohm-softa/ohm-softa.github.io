@@ -280,14 +280,14 @@ class MyApp {
 }
 ```
 
-This is where you need a factory method, often attached to an abstract class or as a default method to an interface.
+This is where you need a factory method, often attached to an abstract class or as a static method to an interface.
 
 ```java
 package mypackage;
 
 public interface Klass {
 	void method();
-	default Klass create() {
+	static Klass create() {
 		return new KlassImpl();  // inside package: visible!
 	}
 }
