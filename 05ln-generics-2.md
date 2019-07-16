@@ -59,7 +59,7 @@ interface Escalatable {
 				.limit(n)
 				.reduce("", (a, b) -> a + b);
 
-		return text + bangs;
+		return text().toUpperCase() + bangs;
 	}
 }
 ```
