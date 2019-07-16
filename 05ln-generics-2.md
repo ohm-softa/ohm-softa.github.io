@@ -133,8 +133,8 @@ interface Escalatable extends Stateful {
 
 	default String escalated() {
 		// generics magic!
-		int n = getState(StatefulEscalate2.class, 0);
-		setState(StatefulEscalate2.class, n+1);
+		int n = getState(Escalatable.class, 0);
+		setState(Escalatable.class, n+1);
 
 		// generate n bangs, or empty strings for n=0
 		String bangs = Stream.generate(() -> "!")
