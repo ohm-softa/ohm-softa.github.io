@@ -30,7 +30,7 @@ class Message implements Escalatable {
 Conceptually, the difference between inheritance and mixins is that the latter are meaningless on its own and can be attached to otherwise unrelated classes.
 On the other hand, inheritance is used if there is a strong relation between the classes.
 
-The main issue with the above realization of mixins is the lack of _state_: since the iterfaces cannot have attributes, the only way to read/write data would be through (`public`) setters/getters.
+The main issue with the above realization of mixins is the lack of _state_: since the interfaces cannot have attributes, the only way to read/write data would be through (`public`) setters/getters.
 
 Let's get back to the above example; let's say, you want to gradually escalate your shouting.
 For example:
@@ -45,7 +45,7 @@ m.escalate();  // "HEY!!!"
 ```
 
 This would require your `escalate` method to remember how often it was called, and add more bangs each time.
-Well fair enough, we'll use the same mechanis as for the `text`:
+Well fair enough, we'll use the same mechanics as for the `text`:
 
 ```java
 interface Escalatable {
@@ -241,7 +241,7 @@ Read more about [generics and inheritance in the Java docs](https://docs.oracle.
 # Bounds on Type Arguments
 
 In the [previous class](/04ln-generics-1/), we implemented a very basic map, by storing the key-value tuples in an unordered linked list.
-Obviously, looking for a certain key in an unodered list is fairly inefficient-- the worst case is to check the whole list, resulting in a complexity that is linear in terms of the stored entries.
+Obviously, looking for a certain key in an unordered list is fairly inefficient-- the worst case is to check the whole list, resulting in a complexity that is linear in terms of the stored entries.
 
 A better way to organize the entries is to use a binary tree that stores the current key as well as links to subtrees with elements that are smaller ("left") and larger ("right").
 
