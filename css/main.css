@@ -320,6 +320,8 @@ img {
 .post-content ul,
 .post-content ol { padding-left: 20px; }
 
+.post-content li { margin-bottom: 10px; }
+
 .post pre,
 .post code {
   border: 1px solid #d5d5e9;

@@ -183,13 +183,13 @@ Java sample code(should be located in two files in two different folders):
 
 ```java
 
-package de.fhro.prg3 {
+package ohm.softa {
     class ClassA {
         //...
     }
 }
 
-package de.fhro.prg3.subpackage {
+package ohm.softa.subpackage {
     class ClassB {
         //...
     }
@@ -199,10 +199,9 @@ package de.fhro.prg3.subpackage {
 
 Directory structure:
 ```
-de/
- |-fhro/
-    |-prg3/
-        |- ClassA.java
-        |- subpackage/
-            |- ClassB.java
+ohm/
+ |- softa/
+    |- ClassA.java
+    |- subpackage/
+       |- ClassB.java
 ```

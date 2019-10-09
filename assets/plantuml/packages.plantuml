@@ -1,6 +1,6 @@
 @startuml Packages
 
-package de.fhro.prg3 {
+package ohm.softa {
     class ClassA {
 
     }

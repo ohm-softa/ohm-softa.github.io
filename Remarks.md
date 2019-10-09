@@ -2,6 +2,13 @@
 
 https://web.hypothes.is/
 
+
+
+- **Parallel and asynchronous processing (Nov 27, [slides](/14s-parallel-async/), [lecture notes](/14ln-parallel-async/), [assignments](https://github.com/ohm-softa/11-futures-cli))**
+
+	Because sometimes, you need to work on more than one thing at a time!
+	Learn about a better `Future` for asynchronous or concurrent workloads, and what _promise chaining_ can do for you.
+
 ## Zu den Übungen
 Minimale Vorgaben, wenig technische Erklärungen. Stattdessen: Hinführende Links, Suchbegriffe, Tips. --- Vielleicht können wir so die Selbstständigkeit erhöhen?
 

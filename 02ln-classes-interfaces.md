@@ -49,7 +49,7 @@ As you can see, regardless of the actual implementation, you can "see" only what
 Enter packages and visibility modifiers.
 Typically, you will group your classes and interfaces into coherent _modules_, the packages.
 Packages are organized in a hierarchical way, similar to a filesystem: while the identifier uses `.` as a separator, each level "down" will be in the according directory.
-For example, the package `de.fhro.inf.prg3` would correspond to the directory `de/fhro/inf/prg3`, and Java files inside that directory need to have the preamble `package de.fhro.inf.prg3` to alert the compiler of the package this class belongs to.
+For example, the package `ohm.softa` would correspond to the directory `ohm.softa`, and Java files inside that directory need to have the preamble `package ohm.softa` to alert the compiler of the package this class belongs to.
 
 Now recall the [visibility modifiers that are defined in Java](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html):
 - `public`: visible everywhere (apply to class, attributes or methods)
@@ -60,13 +60,13 @@ Now recall the [visibility modifiers that are defined in Java](https://docs.orac
 Both of these features combined yield excellent information hiding:
 
 ```java
-package de.fhro.inf.prg3;
+package ohm.softa;
 public interface Itfc {
 	void method();
 }
 ```
 ```java
-package de.fhro.inf.prg3;
+package ohm.softa;
 class SecretImpl implements Itfc {
 	public void method() {  // note: interface --> public
 		System.out.println("Hello, World!");
@@ -77,14 +77,14 @@ class SecretImpl implements Itfc {
 }
 ```
 ```java
-package de.fhro.wif.prg3;     // note: different package...
-import de.fhro.inf.prg3.Itfc; // ...thus must import!
+package ohm.se;     // note: different package...
+import ohm.softa.Itfc; // ...thus must import!
 
 Itfc itfc = ...;  // we'll come to this later!
 itfc.method();
 
-// de.fhro.inf.prg.SecretImpl not visible
-// only methods of .Itfc are accessible
+// ohm.softa.SecretImpl not visible
+// only methods of ohm.softa.Itfc are accessible
 ```
 
 
@@ -97,7 +97,7 @@ Since Java 9, interfaces can have `private` methods.
 Reconsider the above code example:
 
 ```java
-package de.fhro.inf.prg3;
+package ohm.softa;
 public interface Itfc {
 	void method();
 	static Itfc makeInstance() {
@@ -109,8 +109,8 @@ public interface Itfc {
 }
 ```
 ```java
-package de.fhro.wif.prg3;
-import de.fhro.inf.prg3.Itfc;
+package ohm.se;
+import ohm.softa.Itfc;
 
 Itfc itfc = Itfc.makeInstance();
 itfc.method();   // provided by (hidden) SecretImpl
