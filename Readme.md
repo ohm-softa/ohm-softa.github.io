@@ -8,7 +8,7 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 
 **Lecture**: Wednesdays at 3.45p, HW.307
 
-**Tutorials**: Wednesdays at **1p**, HQ.305 ← rescheduled!
+**Tutorials**: Wednesdays at **1.30p**, HQ.305 ← rescheduled (again)!
 
 **Announcements and Discussions:** [Moodle course 5335](https://elearning.ohmportal.de/course/view.php?id=5335)
 

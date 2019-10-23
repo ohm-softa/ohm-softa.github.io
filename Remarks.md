@@ -136,3 +136,4 @@ TODO: Liskovsches Substitutionsprinzip (--> Kap 3)
 - Generics 1 viel zu kurz; mit 2 verbinden und Mixins separat mit Decorator?
 - Mehr inhalte aus "Clean Architecture"?
 - DI und RxJava in das letzte Kapitel
+- try-catch-final (Java/C#) vs. RAII (C++) Beispiel mit Guards?
