@@ -192,10 +192,10 @@ public class Kara extends JavaKaraProgram {
 	public void myMainProgram() {
 		kara.move();        // one step forward
 		kara.turnLeft();    // you guessed it...
-		kara.turnRight();
+		kara.turnRight();   // turn right
 		kara.treeFront();   // tree ahead?
 		kara.putLeaf();     // take a clover leaf
-		kara.removeLeav();  // remove a clover leaf		
+		kara.removeLeaf();  // remove a clover leaf		
 	}
 }
 ```
