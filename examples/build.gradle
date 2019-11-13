@@ -19,18 +19,21 @@ repositories {
 
 dependencies {
     compile files('libs/javakara-x.jar')
-    compile ("javax.xml.bind:jaxb-api:2.3.1")
     compile ("javax.activation:activation:1.1.1")
+    compile ("javax.xml.bind:jaxb-api:2.3.1")
     compile ("com.sun.xml.bind:jaxb-core:2.3.0")
     compile ("com.sun.xml.bind:jaxb-impl:2.3.1")
-    
+
+
     compile ("com.google.code.gson:gson:2.8.5")
     compile ("com.sparkjava:spark-core:2.7.1")
     compile ("org.slf4j:slf4j-simple:1.7.25")
     compile ("com.squareup.retrofit2:retrofit:2.3.0")
     compile ("com.squareup.retrofit2:converter-gson:2.3.0")
     compile("org.apache.commons:commons-lang3:3.8.1")
-    
+
+    runtime ("org.eclipse.persistence:org.eclipse.persistence.moxy:2.7.3")
+
     testRuntime("org.apache.logging.log4j:log4j-core:${log4jVersion}")
     testRuntime("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
 
