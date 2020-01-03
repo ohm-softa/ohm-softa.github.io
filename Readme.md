@@ -106,10 +106,11 @@ The class will be taught in German, the materials are mostly in English.
 	
 	We're wrapping up the semester by talking about patterns of modern software architecture, such as 	dependency injection or microservices.
 
-15. _Jan 15: tbd_
+15. **Guest Lecture: Agile Architektur (Jan 15)**
 
-16. **Guest Lecture: Agile Architektur (Jan 22)**
+	We'll have a Q&A session at 1.30p at the lecture hall, followed by an invited talk presented by Werner Eberling, MATHEMA Software GmbH at 3.45p.
 
-	presented by Werner Eberling, MATHEMA Software GmbH.
+16. _no lecture_
+
 
 _Subscribe to [https://github.com/ohm-softa/ohm-softa.github.io](https://github.com/ohm-softa/ohm-softa.github.io) repository to follow updates._
