@@ -28,7 +28,7 @@ lock --> threadB
 deactivate lock
 activate threadB
 
-threadB --> threadB : dOtherThings()
+threadB --> threadB : doOtherThings()
 
 ...
 
