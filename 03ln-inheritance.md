@@ -389,7 +389,7 @@ interface Top {
 ```java
 interface Left extends Top {
 	default void method() {
-		System.out.println("Right.method()");
+		System.out.println("Left.method()");
 	}
 }
 ```
@@ -403,7 +403,8 @@ interface Right extends Top {
 ```java
 class Bottom implements Left, Right {
 	public void method() {
-		System.out.println("Right.method()");
+		System.out.println("Bottom.method()");
+
 		// use <Interface>.super.<methodname> to access default methods
 		Left.super.method();
 		Right.super.method();

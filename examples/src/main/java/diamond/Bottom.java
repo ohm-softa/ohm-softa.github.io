@@ -6,7 +6,12 @@ import java.util.stream.Stream;
 
 public class Bottom extends Klass implements Left, Right {
 	public void method() {
+		System.out.println("Bottom.method()");
+
+		// this his how to access regular base class implementations
 		super.method();
+
+		// if you need defaults of interfaces
 		Left.super.method();
 		Right.super.method();
 	}
