@@ -137,3 +137,4 @@ TODO: Liskovsches Substitutionsprinzip (--> Kap 3)
 - Mehr inhalte aus "Clean Architecture"?
 - DI und RxJava in das letzte Kapitel
 - try-catch-final (Java/C#) vs. RAII (C++) Beispiel mit Guards?
+- Repository pattern
