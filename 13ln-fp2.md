@@ -303,7 +303,7 @@ foldr(xs, List.<Integer>empty(), (z, zs) -> list(z*z, zs));
 And even `filter`:
 
 ```java
-// retain all values less than 5
+// drop all values less than 5
 foldr(xs, List.<Integer>empty(), (z, zs) -> {
 	if (z < 5) return zs;
 	else return list(z, zs);
