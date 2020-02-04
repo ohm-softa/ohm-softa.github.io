@@ -102,7 +102,7 @@ The code above features three key parts.
 1. A `Runnable` which may use external information and stores results as attributes.
 	Possible exceptions raised in the `run()` method are caught and stored as attribute.
 2. The main program creates and starts the thread to execute the `run()` method of the above instance.
-3. The main program uses the thread's `join()` to wait for completion, and our modified `Runnable`'s `get()` to obtain the result (or raise a possible exception).
+3. The main program uses the thread's `join()` to wait for completion, and our modified `Runnable`'s `getResult()` to obtain the result (or raise a possible exception).
 
 
 Let's refactor the code to separate out the recurring scheme (the mechanics) from the actual business logic (the contents of `run`).
@@ -197,7 +197,7 @@ Future<Integer> f1 = ex.async(new Callable<Integer>() {
 // do other things if you like...
 
 try {
-	System.out.println(f2.get());
+	System.out.println(f1.get());
 } catch (ExecutionException e) {
 	System.out.println("The thread raised an exception: "
 		+ e.getCause());
