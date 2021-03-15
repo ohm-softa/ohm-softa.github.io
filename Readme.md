@@ -8,12 +8,14 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 
 _We will use Zoom for the lecture and Teams for the office hours._
 
-**Lecture**: 
-- Thursdays at 8a, Zoom (see Moodle page)
-- Thursdays at **9.45a**: I will discuss the reference implementation of the previous assignment, followed by an introduction to the next assignment
+**Lecture (Zoom)**: 
+- Thursdays at **8a**: Class, mostly live coding, interaction appreciated :-)
+- Wednesdays at **8a**: I will discuss the reference implementation of the previous assignment, followed by an introduction to the next assignment.
+- Link will be posted on Moodle (see below).
 
-**Tutorials**: 
+**Tutorials (Teams)**: 
 - Mondays at *8a*: _Office hours_. I will be available to answer your questions; share your screen and we will go through your code (FCFS).
+- Teams code: `73136yq`
 
 **Announcements and Discussions:** [Moodle course 5335](https://elearning.ohmportal.de/course/view.php?id=5335), enrollment key: `ohm-softa`
 
