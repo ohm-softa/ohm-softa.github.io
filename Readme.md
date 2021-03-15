@@ -115,7 +115,6 @@ The class will be taught in German, the materials are mostly in English.
 	We'll talk about the specifics (and limits) of functional programming in Java.
 	Learn about the classes and interfaces used for Java's functional parts, and the more sophisticated stream reduction using `reduce` and `collect`.
 
-	> Winter break Dec 23 through Jan 6.
 
 14. **Patterns of modern software architecture (Jul 8, [slides](/15s-patterns-of-modern-software-architecture/))**
 	
