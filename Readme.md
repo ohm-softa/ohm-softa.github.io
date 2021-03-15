@@ -85,7 +85,7 @@ The class will be taught in German, the materials are mostly in English.
 
 	We look at more every-day-patterns: singleton, factory, strategy and command.
 
-> No class on May 13
+	> No class on May 13
 
 9. **Design patterns, pt. 3 (May 20, [slides](/09s-proxy-adapter-flyweight/), [lecture notes](/09ln-proxy-adapter-flyweight/), assignments: [JavaFX](https://github.com/ohm-softa/09-adapter-flyweight-jfx), [Android](https://github.com/ohm-softa/09-adapter-flyweight-android))**
 	
