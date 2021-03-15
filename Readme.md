@@ -62,7 +62,7 @@ The class will be taught in German, the materials are mostly in English.
 	We talk about abstract and final classes, (pure) virtual functions and defaults.
 	Also, when (and how) to use abstract base classes, and how the Decorator pattern can be used to add functionality to existing classes.
 
-> No class on Apr 1, seriously.
+	> No class on Apr 1, seriously.
 
 4. **Mixins, pt. 1; Generics, pt. 1 (Apr 8, [slides](/04s-generics-1/), [lecture notes](/04ln-generics-1/), [assignments](https://github.com/ohm-softa/04-generics))**
 	
@@ -96,7 +96,7 @@ The class will be taught in German, the materials are mostly in English.
 	Because sometimes, you need to work on more than one thing at a time!
 	We'll look at threads and how to control and synchronize them.
 
-> No class on Jun 3
+	> No class on Jun 3
 
 11. **Asynchronous programming (Jun 10, [slides](/11s-futures/), [lecture notes](/11ln-futures/), assignments: [CLI](https://github.com/ohm-softa/11-futures-cli), [Android](https://github.com/ohm-softa/11-futures-android))**
 
@@ -108,7 +108,7 @@ The class will be taught in German, the materials are mostly in English.
 	Leave your imperative and objected oriented programming comfort zone and follow me down the rabbit hole of functional programming.
 	After some theory, we'll do some basic exercises, including `filter`, `map` and `forEach`.
 
-> No class on Jun 24
+	> No class on Jun 24
 
 13. **Functional programming in Java (Jul 1, [slides](/13s-fp2/), [lecture notes](/13ln-fp2/), [assignments](https://github.com/ohm-softa/13-map-reduce-collect))**
 
