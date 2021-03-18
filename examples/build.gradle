@@ -1,16 +1,12 @@
 plugins {
     id "java"
-    id "io.freefair.lombok" version "3.2.1"
+    id "io.freefair.lombok" version "5.3.0"
 }
 
-group 'ohm-softa'
+group 'ohm.softa'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 11
-
-ext.junitPlatformVersion = '1.0.0'
-ext.junitJupiterVersion  = '5.0.0'
-ext.log4jVersion         = '2.9.0'
 
 
 repositories {
@@ -18,29 +14,31 @@ repositories {
 }
 
 dependencies {
-    compile files('libs/javakara-x.jar')
-    compile ("javax.activation:activation:1.1.1")
-    compile ("javax.xml.bind:jaxb-api:2.3.1")
-    compile ("com.sun.xml.bind:jaxb-core:2.3.0")
-    compile ("com.sun.xml.bind:jaxb-impl:2.3.1")
+    implementation files('libs/javakara-x.jar')
+    implementation("javax.activation:activation:1.1.1")
+    implementation("javax.xml.bind:jaxb-api:2.3.1")
+    implementation("com.sun.xml.bind:jaxb-core:2.3.0")
+    implementation("com.sun.xml.bind:jaxb-impl:2.3.1")
+    runtimeOnly("org.eclipse.persistence:org.eclipse.persistence.moxy:2.7.3")
 
+    implementation("com.google.code.gson:gson:${googleGsonVersion}")
+    implementation("com.sparkjava:spark-core:${sparkJavaVersion}")
+    implementation("org.slf4j:slf4j-simple:${slf4jVersion}")
+    implementation("com.squareup.retrofit2:retrofit:${squareRetrofitVersion}")
+    implementation("com.squareup.retrofit2:converter-gson:${squareRetrofitVersion}")
+    implementation("org.apache.commons:commons-lang3:${apacheCommonsLangVersion}")
 
-    compile ("com.google.code.gson:gson:2.8.5")
-    compile ("com.sparkjava:spark-core:2.7.1")
-    compile ("org.slf4j:slf4j-simple:1.7.25")
-    compile ("com.squareup.retrofit2:retrofit:2.3.0")
-    compile ("com.squareup.retrofit2:converter-gson:2.3.0")
-    compile("org.apache.commons:commons-lang3:3.8.1")
+    testRuntimeOnly("org.apache.logging.log4j:log4j-core:${log4jVersion}")
+    testRuntimeOnly("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
 
-    runtime ("org.eclipse.persistence:org.eclipse.persistence.moxy:2.7.3")
-
-    testRuntime("org.apache.logging.log4j:log4j-core:${log4jVersion}")
-    testRuntime("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
-
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
 }
 
 test {
     useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
