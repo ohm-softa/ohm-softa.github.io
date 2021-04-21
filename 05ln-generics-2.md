@@ -356,9 +356,8 @@ Consider this routine that prints out all elements of a `java.util.Collection`.
 
 ```java
 void print(Collection c) {
-	for (Object o : c) {
+	for (Object o : c)
 		System.out.println(o);
-	}
 }
 ```
 
@@ -376,11 +375,20 @@ It is a `Collection` with _unknown_ type, which is denoted using the wildcard `?
 
 ```java
 void print(Collection<?> c) {
-	for (Object o : c) {
+	for (Object o : c)
 		System.out.println(o);
-	}
 }
 ```
+
+Note: The equivalent could also be achieved with a generic type parameter:
+
+```java
+static <T> void print(Collection<T> c) {
+	for (T o : c)
+		System.out.println(o);
+}
+```
+
 
 Note that inside `print()`, we can _read_ the objects, but we cannot add to the collection:
 
@@ -418,8 +426,10 @@ This is an _upper_ bound, defining that the class is unknown, but _at least_ sat
 For example, `List<Integer>` fits as a `List<? extends Number>`.
 
 So what is the difference between a wildcard bound and a type parameter bound?
-First, a wildcard can have only one bound, while a type parameter can have several bounds (using the `&` notation).
-Second, and more importantly: A wildcard can have a _lower_ or an upper bound, while there is no such thing as a lower bound for a type parameter.
+
+- In some cases, type parameters can be replaced by wild cards (see above).
+- A wildcard can have only one bound, while a type parameter can have several bounds (using the `&` notation).
+- A wildcard can have a _lower_ or an upper bound, while there is no such thing as a lower bound for a type parameter.
 
 So what are _lower_ bounds?
 A lower bounded wildcard restricts the unknown type to be a specific type or a supertype of that type.

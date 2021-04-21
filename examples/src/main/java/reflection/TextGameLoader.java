@@ -12,7 +12,7 @@ public class TextGameLoader {
 		URLClassLoader cl = URLClassLoader.newInstance(new URL[] {url});
 
 		// you can play "Addition" or "Parrot"
-		final String choice = "Parrot";
+		final String choice = "Addition";
 
 		TextBasedGame g = (TextBasedGame) cl.loadClass("reflection.games." + choice)
 				.newInstance();

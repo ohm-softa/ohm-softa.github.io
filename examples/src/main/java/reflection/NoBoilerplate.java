@@ -14,6 +14,6 @@ public class NoBoilerplate {
         nb.setName("Hans");
         System.out.println(nb);
 
-        NoBoilerplate.of("muh");
+        System.out.println(NoBoilerplate.of("muh"));
     }
 }
