@@ -128,6 +128,20 @@ Most developers opt for the _lazy initialization_ method, since it makes the ini
 Singletons are standard practice to avoid resource conflicts or overallocation.
 However, they are at the same time (strongly) discouraged if working in a multi-threaded (parallel) environment: while the actual resource conflict can be (usually) solved with locking, the process itself may dramatically reduce the benefit of parallel processing.
 
+In fact, even the authors of _Design Patterns_ would recommend against using the singleton.
+In a long interview on [SE-Radio](https://www.se-radio.net/2014/11/episode-215-gang-of-four-20-years-later/), Erich Gamma (at around minute 57) says (emphasis mine):
+
+> So we added \[Singleton\] and this was an example, everybody understood, you’re writing C++, how you do Singleton-- have a static member and whatever. 
+> Right. So everybody got that immediately.
+> I think there was a great way to tell somebody what he talk about. 
+> But if you think about it, doesn’t have a lot of coolness Singleton, right?
+> **You add something global, which is kind of against objects, which are more about distributing things and not having this centralized thing, which will, at some point hurt you because you want to have multiple of these things or whatever, right.**
+> **It’s often a design shortcut** to me, it’s this single as often as is, and shortcut, you have a well known place to get to another object rather than reaching to other objects to get this space. 
+> So that’s why it often hurts, but with time.
+> So that’s my, it’s not a, my top favorite, my favorite list of patterns.
+> Right? 
+> **So to me, it’s one of the things which should be voted off the Island: Singleton.**
+
 For advanced developers: Favor [_dependency injection_](https://en.wikipedia.org/wiki/Dependency_injection) over singletons.
 
 
