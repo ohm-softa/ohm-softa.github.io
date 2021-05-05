@@ -399,7 +399,7 @@ System.out.println(root);
 
 As you can see, you only need to replace the factory that produces the concrete classes; the construction logic remains the same.
 
-You can find the above example code at <https://github.com/hsro-inf-prg3/hsro-inf-prg3.github.io/tree/master/examples/src/main/java/designpattern/factory>.
+You can find the above example code at <https://github.com/ohm-softa/ohm-softa.github.io/tree/master/examples/src/main/java/designpattern/factory>.
 
 
 ## Structure and Participants
@@ -567,7 +567,7 @@ public class CommandExample extends JavaKaraProgram {
 }
 ```
 
-The complete example code can be found at <https://github.com/hsro-inf-prg3/hsro-inf-prg3.github.io/tree/master/examples/src/main/java/designpattern/command>.
+The complete example code can be found at <https://github.com/ohm-softa/ohm-softa.github.io/tree/master/examples/src/main/java/designpattern/command>.
 
 
 ## Structure and Participants
