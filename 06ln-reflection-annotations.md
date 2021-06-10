@@ -188,7 +188,7 @@ for (Method m : weirdo.getClass().getDeclaredMethods()) {
 	if (m.getReturnType() == boolean.class  // ...returns boolean?
 			&& m.getParameterCount() == 1   // ...has one arg?
 			&& m.getParameterTypes()[0] == String.class) {  // which is String?
-		System.out.println(m.invoke(weirdo, Weirdo.name));
+		System.out.println(m.invoke(weirdo, WeirdImp.name));
 	}
 }
 ```
