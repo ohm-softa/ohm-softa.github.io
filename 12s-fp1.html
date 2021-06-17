@@ -98,7 +98,7 @@ Functions as first-class citizens help to separate the iteration logic from the 
 Say you want to
 
 - retrieve all students from a database,
-- filter out those who took _Programmieren 3_,
+- filter out those who took _Softwarearchitektur_,
 - load their transcript of records from another database
 - print all class names
 
@@ -109,7 +109,7 @@ Say you want to
 
 ```java
 for (Student s : getStudents()) {
-	if (s.getClasses().contains("Programmieren 3")) {
+	if (s.getClasses().contains("Softwarearchitektur")) {
 		ToR tor = db.getToR(s.getMatrikel());
 		for (Record r : tor) {
 			System.out.println(r.getName());
@@ -270,7 +270,7 @@ forEach(xs, System.out::println);
 
 ```java
 for (Student s : Database.getStudents()) {
-	if (s.getClasses().contains("Programmieren 3")) {
+	if (s.getClasses().contains("Softwarearchitektur")) {
 		Transcript tr = Database.getToR(s.getMatrikel());
 		for (Record r : tr)
 			System.out.println(r);
@@ -286,7 +286,7 @@ for (Student s : Database.getStudents()) {
 
 ```java
 Database.getStudents().stream()
-	.filter(s -> s.getClasses().contains("Programmieren 3"))
+	.filter(s -> s.getClasses().contains("Softwarearchitektur"))
 	.map(Student::getMatrikel)
 	.map(Database::getToR)
 	.flatMap(t -> t.records.stream())  // stream of lists to single list
