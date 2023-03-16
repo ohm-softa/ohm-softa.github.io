@@ -92,7 +92,6 @@ itfc.method();
 
 Prior to Java 8, interfaces were limited to (public) functions.
 Since Java 8, interfaces can provide `default` implementations for methods (used to maintain backwards compatibility on extended interfaces) which are available on every resource, and can implement `static` methods, which can be used without instances.
-Since Java 9, interfaces can have `private` methods.
 
 Reconsider the above code example:
 
