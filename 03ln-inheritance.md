@@ -76,7 +76,7 @@ Good object oriented design also ensures **(strong) behavioral subtyping**, as d
 
 > Subtype Requirement: Let ϕ(z) be a property provable about objects x of type T. Then ϕ(y) should be true for objects y of type S where S is a subtype of T.
 
-_Barbara Liskov and Jeanette M. Wing: A Behavioral Notion of Subtyping, ACM Transactions on Programming Languages and Systems, Vol 16, No. 6, November 1994, Pages 1811-1841._
+_Barbara Liskov and Jeanette M. Wing: A Behavioral Notion of Subtyping, ACM Transactions on Programming Languages and Systems, Vol 16, No. 6, November 1994, Pages 1811-1841. [10.1145/197320.197383](https://dl.acm.org/doi/10.1145/197320.197383)_
 
 Or in simpler terms, from the same paper, 
 

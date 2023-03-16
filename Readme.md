@@ -11,7 +11,7 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 
 **Tutorials**: We'll work on the assignment based on the preceding week's lecture, so bring your laptop! Tutorials start March 21. 
 - Tuesdays at *9.45a* in HQ.306
-- Fridays at *9.45* in HQ.406
+- Fridays at *9.45a* in HQ.406
 
 **Announcements and Discussions:** Teams, enrollment key: `bmkntrr`
 
@@ -62,7 +62,7 @@ The class will be taught in German, the materials are mostly in English.
 	
 	After a short digression to Mixins, we dig into the details of how generics work in Java, and how to apply them to data structures and algorithms.
 
-> No class on Friday, Apr 4 (Good Friday)
+> No class on Friday, Apr 7 (Good Friday)
 
 5. **Mixins, pt. 2; Generics, pt. 2 (Apr 14, [slides](/05s-generics-2/), [lecture notes](/05ln-generics-2/), [assignments](https://github.com/ohm-softa/05-generics-bounds))**
 	
