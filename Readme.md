@@ -23,7 +23,7 @@ _Note: Materials will be in English, the lectures/tutorials will be taught in Ge
 **Lectures**: Not your classic lecture--- we'll work together on concrete problems and their solution. 
 The class will be taught in German, the materials are mostly in English.
 
-**Tutorials and assignments**: Pairprogramming preferred, [_BYOD_](https://en.wikipedia.org/wiki/Bring_your_own_device) strongly recommended!
+**Tutorials and assignments**: Pairprogramming preferred, [_BYOD_](https://en.wikipedia.org/wiki/Bring_your_own_device) strongly recommended; _nota bene: assignments typically take longer than 90' to prepare!_
 
 **Credits**: written exam (90') at the end of the semester.
 
@@ -116,5 +116,6 @@ See `General` Channel on Teams > Files.
 	We're wrapping up the semester by talking about patterns of modern software architecture, such as dependency injection or microservices.
 
 15. **Wrap-up (Jul 7)**
+
 
 _Subscribe to [https://github.com/ohm-softa/ohm-softa.github.io](https://github.com/ohm-softa/ohm-softa.github.io) repository to follow updates._
