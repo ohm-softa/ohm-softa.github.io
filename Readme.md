@@ -6,12 +6,12 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 
 ## Class Schedule
 
-**Lecture**: Fridays at **11.30a**: Class, mostly live coding (interaction appreciated :-) in HW.307.
+**Lecture**: Fridays at **11.30a** in HW.307, starting Mar 16: Class, mostly live coding (interaction appreciated :-).
 
 
 **Tutorials**: We'll work on the assignment based on the preceding week's lecture, so bring your laptop! Tutorials start March 21. 
-- Tuesdays at *9.45a* in HQ.306
-- Fridays at *9.45* in HQ.406
+- Tuesdays at *9.45a* in HQ.306, starting Mar 21.
+- Fridays at *9.45* in HQ.406, starting Mar 24.
 
 **Announcements and Discussions:** Teams, enrollment key: `bmkntrr`
 
@@ -39,16 +39,16 @@ The class will be taught in German, the materials are mostly in English.
 
 ### Additional Materials
 
-- [Peter's](https://github.com/baez90) [UML/PlantUML guide](./plantuml-guide)
+See `General` Channel on Teams > Files.
 
 
 ## Syllabus
-1. **Introduction (Mar 17, [slides](/01s-intro/), [assignments](https://github.com/ohm-softa/01-tools/))**
+1. **Introduction (Mar 17/pt1, [slides](/01s-intro/), [assignments](https://github.com/ohm-softa/01-tools/))**
 	
-	We'll talk about software architecture, abstraction, decomposition and good software design.
-	We'll also review the tools and ressources that you'll need for this class.
+	We talk about software architecture, abstraction, decomposition and good software design.
+	We also review the tools and ressources that you'll need for this class.
 
-2. **Classes and Interfaces revisited (Mar 17, [slides](/02s-classes-interfaces/), [lecture notes](/02ln-classes-interfaces/), [assignments](https://github.com/ohm-softa/02-classes-interfaces/))**
+2. **Classes and Interfaces revisited (Mar 17/pt2, [slides](/02s-classes-interfaces/), [lecture notes](/02ln-classes-interfaces/), [assignments](https://github.com/ohm-softa/02-classes-interfaces/))**
 	
 	We look at different types of classes (inner, anonymous, local, static), when to use them, and which visibility for which purpose.
 	Also: `@FunctionalInterface` and lambda expressions.
@@ -57,6 +57,7 @@ The class will be taught in German, the materials are mostly in English.
 	
 	We talk about abstract and final classes, (pure) virtual functions and defaults.
 	Also, when (and how) to use abstract base classes, and how the Decorator pattern can be used to add functionality to existing classes.
+	_Note: Due to the 200 year anniversary, we'll have to stop early at 12.30!_
 
 4. **Mixins, pt. 1; Generics, pt. 1 (Mar 31, [slides](/04s-generics-1/), [lecture notes](/04ln-generics-1/), [assignments](https://github.com/ohm-softa/04-generics))**
 	
