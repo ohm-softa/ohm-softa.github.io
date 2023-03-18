@@ -186,9 +186,9 @@ class Klass {
 	static int nextInt() {
 		return n++;
 	}
-	private int m = 0;
+	private int p = 0;
 	void update() {
-		m = nextInt();
+		p = nextInt();
 	}
 }
 ```
@@ -199,7 +199,7 @@ The `update()` method can only be called on instances, but will use the very sam
 ```java
 int n1 = Klass.nextInt();  // n1 == 0, Klass.n == 1
 Klass k = new Klass();
-k.update();                // k.m == 1, Klass.n == 2
+k.update();                // k.p == 1, Klass.n == 2
 int n2 = k.nextInt();      // n2 == 2, Klass.n == 3
 ```
 
