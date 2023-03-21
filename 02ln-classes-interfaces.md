@@ -49,7 +49,7 @@ As you can see, regardless of the actual implementation, you can "see" only what
 Enter packages and visibility modifiers.
 Typically, you will group your classes and interfaces into coherent _modules_, the packages.
 Packages are organized in a hierarchical way, similar to a filesystem: while the identifier uses `.` as a separator, each level "down" will be in the according directory.
-For example, the package `ohm.softa` would correspond to the directory `ohm.softa`, and Java files inside that directory need to have the preamble `package ohm.softa` to alert the compiler of the package this class belongs to.
+For example, the package `ohm.softa` would correspond to the directory `ohm/softa`, and Java files inside that directory need to have the preamble `package ohm.softa` to alert the compiler of the package this class belongs to.
 
 Now recall the [visibility modifiers that are defined in Java](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html):
 - `public`: visible everywhere (apply to class, attributes or methods)
