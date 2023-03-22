@@ -10,8 +10,8 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 
 
 **Tutorials**: We'll work on the assignment based on the preceding week's lecture, so bring your laptop! Tutorials start March 21. 
-- Tuesdays at *9.45a* in HQ.306, starting Mar 21.
-- Fridays at *9.45* in HQ.406, starting Mar 24.
+- Tuesdays at *9.45a* in HQ.306 &amp; HQ.406, starting Mar 21.
+- Fridays at *9.45* in HQ.405 &amp; HQ.406, starting Mar 24.
 
 **Announcements and Discussions:** Teams, enrollment key: `bmkntrr`
 
