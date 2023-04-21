@@ -147,6 +147,27 @@ Klass obj2 = gson.fromJson(json, Klass.class);
 
 ---
 
+# Annotations: Butterknife...
+
+Don't do this...
+
+```java
+class ExampleActivity {
+    TextView title;
+    TextView subtitle;
+    TextView footer;
+public View onCreate(Bundle savedInstanceState) {
+   // [...]
+   View view = inflater.inflate(R.layout.myLayout, container, false);
+
+   title = (ImageView) view.findViewById(R.id.title);
+   subtitle = (ImageView) view.findViewById(R.id.subtitle);
+   footer = (ImageView) view.findViewById(R.id.footer);
+}
+```
+
+---
+
 # Annotations: Butterknife
 
 ```java
@@ -158,8 +179,7 @@ class ExampleActivity extends Activity {
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.simple_activity);
-        ButterKnife.bind(this);
-        // TODO Use fields...
+        ButterKnife.bind(this);  // that's it, all done!
     }
 }
 ```
