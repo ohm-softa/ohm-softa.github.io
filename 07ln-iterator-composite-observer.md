@@ -435,10 +435,10 @@ It is most used to react to events that are not in control of the program (user 
 - databases: inserts, updates, deletes
 
 
-# Digression: Android and MVC
+# Digression: JavaFX and MVC
 
-> Neither MVC or Android are essential to this class.
-> However, Android is an excellent means to demonstrate design patterns "in the wild," so we use them in the assignments to make them more meaningful and hands-on.
+> Neither MVC or JavaFX are essential to this class.
+> However, JavaFX is an excellent means to demonstrate design patterns "in the wild," so we use them in the assignments to make them more meaningful and hands-on.
  
 See [slides, from #13](/07s-iterator-composite-observer/#3).
 

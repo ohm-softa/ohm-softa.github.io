@@ -226,11 +226,11 @@ _Don't panic: this is neither a GUI nor a mobile development class!_
 
 **View**: 
 - visualization of data and state
-- Android widget library
+- JavaFX widget library
 
 **Controller**: 
 - business logic (by you)
-- user input (provided by Android OS)
+- user input (provided by OS)
 ]
 ]
 
@@ -249,8 +249,8 @@ Core algorithms to load, store, organize and transform data.*
 Typically implemented in (pure) Java.**
 
 Examples:
-- `Joke` class to store jokes from ICNDB
-- networking code to retrieve jokes from ICNDB
+- `Joke` class to store jokes from CNJDB
+- networking code to retrieve jokes from CNJDB
 - internal cache to store jokes
 
 .skip[
@@ -272,20 +272,17 @@ Text views, buttons, lists, images, etc.
 Typically implemented using a certain XML format, which is then "inflated" by a loader program.
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="vertical" >
-    <TextView android:id="@+id/text"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="I am a TextView" />
-    <Button android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="I am a Button" />
-</LinearLayout>
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ohm.softa.a07.controllers.MainController">
+	<Button fx:id="btnRefresh" text="Refresh" GridPane.columnIndex="0" GridPane.rowIndex="0">
+	<ListView fx:id="mealsList" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+
+</GridPane>
 ```
 
 ---
@@ -294,125 +291,73 @@ Typically implemented using a certain XML format, which is then "inflated" by a 
 
 Manipulate the model using user or system input.
 
-User input: button clicks, swipe-for-refresh, etc.
+User input: button clicks, key presses, etc.
 
-System signals: power or network configuration changes, interrupts
+System signals: interrupts, networking, ...
 
 Typically implemented in Java, by triggering certain logic on a certain event.
 
 ---
 
-# Android: Basic Building Blocks (1)
+# JavaFX: Basic Building Blocks (1)
 
-- see the [base project](https://github.com/hsro-inf-prg3/07-composite-observer) for this weeks assignment
-- an _app_ consists of at least one _activity_ or _service_
-	+ services run in the background (not covered here)
-	+ activities run in the foreground, and require a main view
+- see the [base project](https://github.com/ohm-softa/07-composite-observer-jfx) for this weeks assignment
+- an `Application` typically consists of a main (`Parent`) view, rendered to a `Stage`
+- A view typically has a dedicated controller
+	+ wiring of XML-defined widgets to controller via `@FXML` annotations
 
-- no more `public static void main(String... args)`, but main activity
-	+ configured in `AndroidManifest.xml`, typically `MainActivity`
+- `public static void main(String... args)` typically only calls `Application.launch`
 
 ```java
-public class MainActivity extends AppCompatActivity {
+public class App extends Application {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        // this will inflate the layout from res/layout/activity_main.xml
-        setContentView(R.layout.activity_main);
-        
-        // add your code to be run at startup here
-    }
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage stage) throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+		stage.setTitle("Cafeteria");
+		stage.setScene(new Scene(root, 800, 600));
+		stage.show();
+	}
 }
 ```
 
 ---
 
-# Basic Building Blocks (2)
+# A Note on Building
 
-Every activity needs a layout.
+See [Getting Started Documentation](https://openjfx.io/openjfx-docs/) for your favorite IDE.
 
-`R.layout.activity_main` points to `res/layout/activity_main.xml`
+Recommended: Gradle
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="ohm.softa.a07.MainActivity">
-    <TextView
-    	android:id="@+id/myTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+```
+plugins{
+	id 'org.openjfx.javafxplugin' version '0.0.9'
+}
 
-</android.support.constraint.ConstraintLayout>
+javafx {
+	sdk = '/Users/riedhammerko/Library/Java/JavaVirtualMachines/javafx-sdk-17'
+	version = 17
+	modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
 ```
 
 ---
 
 # Basic Components
 
-<https://developer.android.com/guide/topics/ui/controls.html>
+[`javafx.scene.control`](https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/package-summary.html)
 
 ![ui-controls](/assets/ui-controls.png)
 
 - `TextField` (single and multiline)
-- `TextInput`
 - `Button`
 - `CheckBox` and `RadioButton`
 - `ListView`
 
----
-
-# Referencing Components on the Screen
-
-You can get a handle on the components rendered on the screen.
-- set the `android:id` field in the XML layout
-- inside the activity code, use the `findViewById()` function with that id
-
-```java
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        // see android:id="@+id/myTextView"
-        TextView tv = (TextView) findViewById(R.id.myTextView);
-    }
-}
-```
-
----
-
-# Wiring Components and User Input
-
-<https://developer.android.com/guide/topics/ui/ui-events.html>
-
-Components can react to certain user input, for example
-- _click_, using the `setOnClickListener()`
-- _long click_, using the `setOnLongClickListener()`
-- and a few others
-
-```java
-Button button = (Button) findViewById(R.id.myButton);
-button.setOnClickListener(new View.OnClickListener() {
-	@Override
-	public void onClick(View v) {
-		// do something
-	}
-});
-```
 
 ---
 
@@ -434,21 +379,38 @@ toast.show();
 Or use system logging services (rendered to logcat):
 
 ```java
-import import java.util.logging.Logger;
-// ...
-Logger logger = Logger.getLogger(OpenMensaAPITests.class.getName());
-logger.info("Hello, world!");
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+private static final Logger logger = LogManager.getLogger(MainController.class);
+
+
+log.setLevel(Level.WARN);
+
+log.trace("Trace Message!");
+log.debug("Debug Message!");
+log.info("Info Message!");
+log.warn("Warn Message!");
+log.error("Error Message!");
+log.fatal("Fatal Message!");
 ```
 
 ---
 
-# Some Peculiarities
+# Log4j integrates!
 
-- unless you actively terminate apps, they won't terminate (until the OS decides to kill them)
-- when you launch an app, you actually launch an activity (the app may already be running)
-- when cycling activities, they may actually be recreated
-- rotation events cause activities to be recreated
-- apps (sic!) have separate threads for GUI, services and logic
-	+ you can't run IO (networking, files) on the GUI thread
-	+ you can run services without an open activity (think Dropbox!)
-- getting from one activity to another, you need to [understand the intent mechanism](https://developer.android.com/guide/components/intents-filters.html)
+...for example with `OkHttp`
+
+```java
+HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+OkHttpClient client = new OkHttpClient.Builder()
+	.addInterceptor(interceptor)
+	.build();
+
+Retrofit retrofit = new Retrofit.Builder()
+	.client(client)
+	.baseUrl("https://openmensa.org/api/v2/")
+	.build();
+```
