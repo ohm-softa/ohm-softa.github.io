@@ -111,7 +111,7 @@ class Program {
 		r.setWidth(10);
 		r.setHeight(15);
 
-		assert r.getWidth == 10;
+		assert r.getWidth() == 10;
 	}
 	public static void main(String... args) {
 		Rectangle r = new Rectangle(0, 0, 5, 5);
