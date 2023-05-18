@@ -74,13 +74,13 @@ This makes sense and is syntactically verified by the compiler.
 However, if you think about the _behavior_ of objects of subtypes, we need to be careful.
 Good object oriented design also ensures **(strong) behavioral subtyping**, as defined by Barbara Liskov and Jeanette Wing in their 1994 paper:
 
-> Subtype Requirement: Let ϕ(z) be a property provable about objects x of type T. Then ϕ(y) should be true for objects y of type S where S is a subtype of T.
+> Subtype Requirement: Let ϕ(x) be a property provable about objects x of type T. Then ϕ(y) should be true for objects y of type S where S is a subtype of T.
 
 _Barbara Liskov and Jeanette M. Wing: A Behavioral Notion of Subtyping, ACM Transactions on Programming Languages and Systems, Vol 16, No. 6, November 1994, Pages 1811-1841. [10.1145/197320.197383](https://dl.acm.org/doi/10.1145/197320.197383)_
 
 Or in simpler terms, from the same paper, 
 
-> For example, stacks and queues nught both have a put method to add an element and a get method to remove one.
+> For example, stacks and queues might both have a put method to add an element and a get method to remove one.
 > According to the contravariance rule, either could be a legal subtype of the other.
 > However, a program written in the expectation that x is a stack is unlikely to work correctly if x actually denotes a queue, and vice versa.
 
@@ -219,7 +219,7 @@ class Student extends DBItem {
 }
 ```
 
-This way, we the SQL statement is constructed solely in the `DBItem`, where it also makes sense -- the INSERT statement only differs in table, fields and values.
+This way, the SQL statement is constructed solely in the `DBItem`, where it also makes sense -- the INSERT statement only differs in table, fields and values.
 The subclasses on the other hand provide the necessary information, but are agnostic of how to construct the queries.
 
 
