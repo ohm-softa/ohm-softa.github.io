@@ -86,36 +86,36 @@ See `General` Channel on Teams > Files.
 	
 	We round up a few more useful patterns: proxy and adapter to make other peoples' modules fit your needs, and flyweight to save on precious memory in (mostly) graphical apps.
 
-10. **Parallel processing (May 19, [slides](/10s-threads/), [lecture notes](/10ln-threads/), assignments: [JavaFX](https://github.com/ohm-softa/10-threads-jfx), [Android](https://github.com/ohm-softa/10-threads-android))**
+> _No class on May 19_
+
+> _No class on May 26 (Pentecost)_
+
+10. **Parallel processing (Jun 2, [slides](/10s-threads/), [lecture notes](/10ln-threads/), assignments: [JavaFX](https://github.com/ohm-softa/10-threads-jfx), [Android](https://github.com/ohm-softa/10-threads-android))**
 
 	Because sometimes, you need to work on more than one thing at a time!
 	We'll look at threads and how to control and synchronize them.
 
-> No class on May 26 (Pentecost)
+> _No class on Jun 9_
 
-11. **Asynchronous programming (Jun 2, [slides](/11s-futures/), [lecture notes](/11ln-futures/), assignments: [CLI](https://github.com/ohm-softa/11-futures-cli), [Android](https://github.com/ohm-softa/11-futures-android))**
+11. **Asynchronous programming (Jun 16, [slides](/11s-futures/), [lecture notes](/11ln-futures/), assignments: [CLI](https://github.com/ohm-softa/11-futures-cli), [Android](https://github.com/ohm-softa/11-futures-android))**
 
 	User interfaces often require us to work not only in parallel, but to do so in an asynchronous way.
 	Learn about a better `Future` for asynchronous or concurrent workloads, and what _promise chaining_ can do for you.
 
-> No class on Jun 9
-
-12. **Introduction to functional programming (Jun 16, [slides](/12s-fp1/), [lecture notes](/12ln-fp1/), [assignments](https://github.com/ohm-softa/12-functional-cli))**
+12. **Introduction to functional programming (Jun 23, [slides](/12s-fp1/), [lecture notes](/12ln-fp1/), [assignments](https://github.com/ohm-softa/12-functional-cli))**
 	
 	Leave your imperative and objected oriented programming comfort zone and follow me down the rabbit hole of functional programming.
 	After some theory, we'll do some basic exercises, including `filter`, `map` and `forEach`.
 
-13. **Functional programming in Java (June 23, [slides](/13s-fp2/), [lecture notes](/13ln-fp2/), [assignments](https://github.com/ohm-softa/13-map-reduce-collect))**
+13. **Functional programming in Java (June 30, [slides](/13s-fp2/), [lecture notes](/13ln-fp2/), [assignments](https://github.com/ohm-softa/13-map-reduce-collect))**
 
 	We'll talk about the specifics (and limits) of functional programming in Java.
 	Learn about the classes and interfaces used for Java's functional parts, and the more sophisticated stream reduction using `reduce` and `collect`.
 
 
-14. **Patterns of modern software architecture (Jun 30, [slides](/15s-patterns-of-modern-software-architecture/))**
+14. **Patterns of modern software architecture (Jul 7, [slides](/15s-patterns-of-modern-software-architecture/))**
 	
 	We're wrapping up the semester by talking about patterns of modern software architecture, such as dependency injection or microservices.
-
-15. **Wrap-up (Jul 7)**
 
 
 _Subscribe to [https://github.com/ohm-softa/ohm-softa.github.io](https://github.com/ohm-softa/ohm-softa.github.io) repository to follow updates._
