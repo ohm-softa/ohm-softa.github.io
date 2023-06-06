@@ -393,22 +393,22 @@ There is a total of 23 design patterns described by Gamma _et al._
 Throughout this course, we already discussed quite a few of those:
 
 ## Creational Patterns
-- [Factory and factory method](/08ln-singleton-factory-strategy-command/): Provide an interface for creating families of related or dependent objects without specifying their concrete class.
-- [Singleton](/08ln-singleton-factory-strategy-command/): Guarantee _unique_ instance of class, and provide global access.
+- [Factory and factory method](/08ln-singleton-factory-strategy-command/#factory): Provide an interface for creating families of related or dependent objects without specifying their concrete class.
+- [Singleton](/08ln-singleton-factory-strategy-command/#singleton): Guarantee _unique_ instance of class, and provide global access.
 
 ## Structural Patterns
 - [Adapter](#adapter): Make a piece of software fit your needs.
-- [Composite](/07ln-iterator-composite-observer/): Recursive data structure with containers and leaves, to represent part-whole hierarchies; composite lets client treeat objects and compositions uniformly.
-- [Decorator](/03ln-inheritance): Add functionality to objects without changing their basic interface.
+- [Composite](/07ln-iterator-composite-observer/#composite): Recursive data structure with containers and leaves, to represent part-whole hierarchies; composite lets client treeat objects and compositions uniformly.
+- [Decorator](/03ln-inheritance/#the-decorator-pattern): Add functionality to objects without changing their basic interface.
 - [Flyweight](#flyweight): Share common data to support large numbers of similar objects.
 - [Proxy](#proxy): Provide a surrogate to allow caching or access control; indistinguishable to the client (same interface).
 
 ## Behavioral Patterns
-- [Command](/08ln-singleton-factory-strategy-command/): create objects that can do or undo certain actions; use it to realize undo, macros and transactions.
-- [Iterator](/07ln-iterator-composite-observer/): Provide access to elements of aggregate without exposing the underlying structure/representation.
-- [Observer](/07ln-iterator-composite-observer/): Subscribe to an object to get notified on state change.
+- [Command](/08ln-singleton-factory-strategy-command/#command): create objects that can do or undo certain actions; use it to realize undo, macros and transactions.
+- [Iterator](/07ln-iterator-composite-observer/#iterator): Provide access to elements of aggregate without exposing the underlying structure/representation.
+- [Observer](/07ln-iterator-composite-observer/#observer): Subscribe to an object to get notified on state change.
 - [State](https://github.com/hsro-inf-prg3/03-inheritance): Allow an object to alter its behavior when its internal state changes; objects will appear to change their class.
-- [Strategy](/08ln-singleton-factory-strategy-command/): Define family of algorithms and make them interchangeable.
+- [Strategy](/08ln-singleton-factory-strategy-command/#strategy): Define family of algorithms and make them interchangeable.
 - [Template method](/03ln-inheritance/): Define skeleton of algorithm/functionality in an operation, deferring certain steps/parts to subclasses.
 
 

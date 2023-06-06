@@ -440,7 +440,7 @@ It is most used to react to events that are not in control of the program (user 
 > Neither MVC or JavaFX are essential to this class.
 > However, JavaFX is an excellent means to demonstrate design patterns "in the wild," so we use them in the assignments to make them more meaningful and hands-on.
  
-See [slides, from #13](/07s-iterator-composite-observer/#3).
+See [slides, from #13](/07s-iterator-composite-observer/#13).
 
 
 <p style="text-align: right">&#8718;</p>
