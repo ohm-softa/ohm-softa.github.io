@@ -407,7 +407,7 @@ Throughout this course, we already discussed quite a few of those:
 - [Command](/08ln-singleton-factory-strategy-command/#command): create objects that can do or undo certain actions; use it to realize undo, macros and transactions.
 - [Iterator](/07ln-iterator-composite-observer/#iterator): Provide access to elements of aggregate without exposing the underlying structure/representation.
 - [Observer](/07ln-iterator-composite-observer/#observer): Subscribe to an object to get notified on state change.
-- [State](https://github.com/hsro-inf-prg3/03-inheritance): Allow an object to alter its behavior when its internal state changes; objects will appear to change their class.
+- [State](https://github.com/ohm-softa/03-inheritance): Allow an object to alter its behavior when its internal state changes; objects will appear to change their class.
 - [Strategy](/08ln-singleton-factory-strategy-command/#strategy): Define family of algorithms and make them interchangeable.
 - [Template method](/03ln-inheritance/): Define skeleton of algorithm/functionality in an operation, deferring certain steps/parts to subclasses.
 

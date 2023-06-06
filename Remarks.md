@@ -138,3 +138,7 @@ TODO: Liskovsches Substitutionsprinzip (--> Kap 3)
 - DI und RxJava in das letzte Kapitel
 - try-catch-final (Java/C#) vs. RAII (C++) Beispiel mit Guards?
 - Repository pattern
+
+# Sommersemester 2023
+
+- Singleton in DP/1 vorziehen, dadurch mehr platz für Strategy und Factory
