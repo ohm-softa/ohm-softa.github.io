@@ -373,6 +373,7 @@ As you can see, interfaces with default methods allow for a very modular and fle
 
 
 # The Diamond Problem
+<!-- > aka: deadly diamond of death  (ˊ☉_☉ˋ) -->
 
 <https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem>
 
