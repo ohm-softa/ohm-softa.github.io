@@ -12,7 +12,6 @@ import java.util.Arrays;
 public class PECS {
     static class A {}
     static class B extends A {}
-    static class C extends B {}
 
     public static <T> void copy(List<? extends T> from, List<? super T> to, T o) {
         for (T i : from)
@@ -22,10 +21,12 @@ public class PECS {
     public static void main(String[] args) {
         List<A> as = Arrays.asList(new A(), new A());
         List<B> bs = Arrays.asList(new B(), new B());
-        List<C> cs = Arrays.asList(new C(), new C());
 
         copy(bs, as, new A());
         copy(bs, as, new B());
 
+        // explicit type resolution
+        PECS.<A>copy(bs, as, null);
+        PECS.<B>copy(bs, as, null);
     }
 }
