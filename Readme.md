@@ -11,7 +11,7 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 
 **Tutorials**: We'll work on the assignment based on the preceding week's lecture, so bring your laptop! Tutorials start Oct 19 (!). 
 - Mondays at *9.45a* in HQ.406, starting Oct 19.
-- Thursdays at *9.45* in HW.209, starting Oct 23.
+- ~~Thursdays at *9.45* in HW.209, starting Oct 23.~~ (canceled)
 
 **Announcements and Discussions:** Teams, enrollment key: `nvvy2wx`
 
@@ -61,7 +61,6 @@ See `General` Channel on Teams > Files.
 	
 	We talk about abstract and final classes, (pure) virtual functions and defaults.
 	Also, when (and how) to use abstract base classes, and how the Decorator pattern can be used to add functionality to existing classes.
-	_Note: Due to the 200 year anniversary, we'll have to stop early at 12.30!_
 
 4. **Mixins, pt. 1; Generics, pt. 1 (Oct 30, [slides](/04s-generics-1/), [lecture notes](/04ln-generics-1/), [assignments](https://github.com/ohm-softa/04-generics))**
 	
