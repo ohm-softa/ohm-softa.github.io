@@ -194,24 +194,6 @@ class SimpleList<T> implements BasicList<T> {
 
 ---
 
-# Android
-
-.container[
-.column.w40[
-![Android OS](/assets/android-robot.svg)
-]
-
-.column.w40[
-![Android design](/assets/android-design.png)
-]
-]
-
-.container[
-_Don't panic: this is neither a GUI nor a mobile development class!_
-]
-
----
-
 # Model-View-Controller
 
 .container[
@@ -365,26 +347,13 @@ javafx {
 
 `System.out` etc. don't work (no terminal, no service!)
 
-Use a _toast_ instead:
-
-```java
-Context context = getApplicationContext();
-CharSequence text = "Hello toast!";
-int duration = Toast.LENGTH_SHORT;
-
-Toast toast = Toast.makeText(context, text, duration);
-toast.show();
-```
-
-Or use system logging services (rendered to logcat):
+Use system logging services (rendered to logcat):
 
 ```java
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 private static final Logger logger = LogManager.getLogger(MainController.class);
-
-
 log.setLevel(Level.WARN);
 
 log.trace("Trace Message!");
