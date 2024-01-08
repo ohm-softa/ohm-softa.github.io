@@ -359,6 +359,118 @@ public <U,V> CompletableFuture<V> thenCombineAsync(
 	BiFunction<? super T,? super U,? extends V> fn)
 ```
 
+## ChatGPT 4 on `CompletableFuture`
+
+_Retrieved on 2024-01-08, query was "give me a detailed walk-through for completablefuture in java"_
+
+`CompletableFuture` in Java is an advanced tool for asynchronous programming, introduced in Java 8. It allows you to write non-blocking code by running a task on a separate thread than the main application thread and notifying the main thread about its progress, completion, or failure. Here's a detailed walkthrough:
+
+### 1. Basic Creation and Usage
+
+- **Creating a `CompletableFuture`:**
+  ```java
+  CompletableFuture<String> future = new CompletableFuture<>();
+  ```
+
+- **Completing a `CompletableFuture`:**
+  You can manually complete it:
+  ```java
+  future.complete("Result");
+  ```
+
+- **Running Asynchronously:**
+  Run a task asynchronously and return a new `CompletableFuture`:
+  ```java
+  CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+      // some long-running task
+  });
+  ```
+
+  For a task that returns a result:
+  ```java
+  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+      return "Result";
+  });
+  ```
+
+### 2. Combining `CompletableFuture`s
+
+- **thenApply:**
+  Transform the result of a `CompletableFuture`:
+  ```java
+  CompletableFuture<String> transformed = future.thenApply(result -> result.toUpperCase());
+  ```
+
+- **thenCompose:**
+  Chain another `CompletableFuture`:
+  ```java
+  CompletableFuture<String> chainedFuture = future.thenCompose(result -> anotherAsyncMethod(result));
+  ```
+
+- **thenCombine:**
+  Combine two independent `CompletableFuture`s:
+  ```java
+  CompletableFuture<String> combinedFuture = future1.thenCombine(future2, (result1, result2) -> result1 + result2);
+  ```
+
+### 3. Handling Errors
+
+- **exceptionally:**
+  Handle exceptions from the `CompletableFuture`:
+  ```java
+  CompletableFuture<String> handled = future.exceptionally(ex -> "Default Value");
+  ```
+
+### 4. Waiting for Completion
+
+- **join:**
+  Waits for the `CompletableFuture` to complete and retrieves its result (blocking):
+  ```java
+  String result = future.join();
+  ```
+
+- **get:**
+  Similar to `join` but throws checked exceptions:
+  ```java
+  try {
+      String result = future.get();
+  } catch (InterruptedException | ExecutionException e) {
+      e.printStackTrace();
+  }
+  ```
+
+### 5. Asynchronous Methods
+
+- **thenApplyAsync, thenComposeAsync, etc.:**
+  Variants of `thenApply`, `thenCompose`, etc., that run their tasks asynchronously.
+
+### 6. Completing on Timeout
+
+- **orTimeout / completeOnTimeout (Java 9+):**
+  ```java
+  future.orTimeout(1, TimeUnit.SECONDS);
+  future.completeOnTimeout("Default Value", 1, TimeUnit.SECONDS);
+  ```
+
+### 7. Combining Multiple Futures
+
+- **allOf:**
+  Wait for all `CompletableFuture`s to complete:
+  ```java
+  CompletableFuture<Void> allFutures = CompletableFuture.allOf(future1, future2, future3);
+  ```
+
+- **anyOf:**
+  Wait for any of the `CompletableFuture`s to complete:
+  ```java
+  CompletableFuture<Object> anyFuture = CompletableFuture.anyOf(future1, future2, future3);
+  ```
+
+### Conclusion
+
+`CompletableFuture` is a powerful tool for asynchronous programming, allowing for complex non-blocking workflows and efficient handling of concurrent tasks. It's important to handle exceptions properly and understand the differences between blocking (join/get) and non-blocking methods. With Java 9 and later versions, additional features like timeout handling make `CompletableFuture` even more versatile.
+
+
 
 # Other Concurrency Utilities
 
