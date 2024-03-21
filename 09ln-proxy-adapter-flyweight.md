@@ -384,6 +384,7 @@ Notes:
 - Browser rendering the same media multiple times; intrinsic state: actual media (image, video, audio), extrinsic state: location on screen
 - Android `RecyclerView`; intrinsic state: inflated layout of `RecycleView`, extrinsic state: actual contents to be displayed (often nested with further Flyweight)
 - Video games rendering/tiling engines; intrinsic state: actual texture or tile, extrinsic state: 3D location and orientation
+- [`Boost.Flyweight`](https://www.boost.org/doc/libs/1_84_0/libs/flyweight/doc/index.html), a C++ implementation that abstracts the caching of heavy, potentially duplicated, objects. (This may be similar to the Java-internal management of `String` literals/instances.)
 
 ---
 
