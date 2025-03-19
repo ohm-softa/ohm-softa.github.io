@@ -10,7 +10,7 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 **Tutorials**: We'll work on the assignments based on the preceding week's lecture, so bring your laptop! Tutorials start Mar 25.
 
 - Tuesdays at *9.45a* in SP.467 (Riedhammer & Tallowitz)
-- Tuesdays at *9.45a* in SP.468 (Braun & Tallowitz)
+- Tuesdays at *2p* in SP.467/468 (Braun & Tallowitz)
 
 **Announcements and Discussions:** Teams, enrollment key: `b1f92iq`
 
