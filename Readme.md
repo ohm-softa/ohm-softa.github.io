@@ -16,12 +16,13 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 
 _Note: Materials will be in English, the lectures/tutorials will be taught in German; the written exam will be German (you may answer in English)._
 
-### No class on the following days
+### No class on the following days (**updated: Apr 28**)
 
 - Apr 21+22 (Easter)
-- May 5+6
+- May 6 (DFG site visit)
+- Jun 2 (Berufungsverfahren IN-2021-01)
 - Jun 9+10 (Pentecost)
-- (maybe) Jun 16+17
+- Jun 16+17
 
 
 ## Class and Credits (_Leistungsnachweis_)
