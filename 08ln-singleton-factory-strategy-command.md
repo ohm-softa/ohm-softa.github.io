@@ -6,6 +6,9 @@ permalink: /08ln-singleton-factory-strategy-command/
 # Design Patterns, pt. 2
 
 This week we'll talk about two structural patterns (_Singleton_ and _Factory_) as well as two behavioral patterns (_Strategy_ and _Command_).
+We finish with _Dependency Injection_.
+While this was not part of the original 23 patterns, it is used througout most advanced frameworks, and is closely linked to singleton and factory.
+
 
 # Singleton
 
@@ -142,7 +145,7 @@ In a long interview on [SE-Radio](https://www.se-radio.net/2014/11/episode-215-g
 > Right? 
 > **So to me, it’s one of the things which should be voted off the Island: Singleton.**
 
-For advanced developers: Favor [_dependency injection_](https://en.wikipedia.org/wiki/Dependency_injection) over singletons.
+Ij many cases, _Dependency Injection_ is the right pattern, if "wiring" of objects was the reason to use singletons in the first place.
 
 
 ## Examples
@@ -602,5 +605,138 @@ Building up a stack of actions automatically leads to adopting the command patte
 - Version control (eg. git)
 - Realizations of automatons
 
+
+# Dependency Injection
+
+Object instantiation often comes with nested dependencies.
+Consider the following (academic) example where one object requires another to work:
+
+```java
+class KlassA {}
+
+class KlassB {
+	KlassA a = new KlassA();
+}
+```
+
+The problem with this implementation is that any `KlassB` instance is now hard-wired to a newly allocated `KlassA`.
+While this may be fine for basic cases, it is often a deal breaker for systematic testing.
+For example, if `KlassA` is a database or network service, testing `KlassB` would require a live connection to those services -- obviously not a smart solution: even if you could spin up a database solely for testing purposes, you would still have to maintain that.
+
+So instead of hard-wiring dependencies, we apply _inversion of control_ (sometimes abbreviated as IOC), that is, instead of putting an object in control of instantiating its members, we provide ("inject") them through the constructor.
+Let's rewrite and extend the example from above:
+
+```java
+class KlassA {}
+
+class KlassB {
+	KlassA a;
+	KlassB(KlassA a) {
+		this.a = a;
+	}
+	public String toString() { 
+		return super.toString() + " a=" + a; 
+	}
+}
+
+class KlassC {
+	KlassA a;
+	KlassB b;
+	KlassC(KlassA a, KlassB b) {
+		this.a = a;
+		this.b = b;
+	}
+	public String toString() { 
+		return super.toString() 
+			+ " a=" + a 
+			+ " b=" + b; 
+	}
+}
+```
+
+The instantiation of `KlassC` now requires the instantiation of its dependencies first:
+
+```java
+KlassA a = new KlassA();
+KlassB b = new KlassB(a);
+KlassC c = new KlassC(a, b);  // a is effectively singleton!
+```
+
+While this may be fine for small projects with simple classes, this can quickly get out of hand, particularly if testing requires mocking of certain dependencies.
+
+The idea of _dependency injection_ (DI) as a pattern is to automate the process of object instantiation.
+The [JSR330](https://jcp.org/en/jsr/detail?id=330) (2009) detailed how this should be done in Java.
+Note that the idea is way older (rooting back to concepts in SmallTalk), but was probably first formalized by Martin Fowler in his [IOC and DI](https://martinfowler.com/articles/injection.html) article.
+DI did not (yet) make it into the Java language specification, but it has been adopted and implemented by major frameworks, just to name a few: [Spring](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html) (setter-based injection related to Beans, see also [Baeldung on DI](https://www.baeldung.com/spring-dependency-injection)), [Dagger](https://dagger.dev) (compile-time DI for performance critical scenarios) or [Guice](https://github.com/google/guice) (reflection-based).
+
+At its core, we need to define which fields or methods require injection, and what classes should be instantiated for certain interfaces.
+Using [Guice](https://github.com/google/guice), we can rework the above example:
+
+```java
+@Singleton
+class KlassA {}
+
+class KlassB {
+	KlassA a;
+	
+	@Inject
+	KlassB(KlassA a) {
+		this.a = a;
+	}
+	public String toString() { 
+		return super.toString() + " a=" + a; 
+	}
+}
+
+class KlassC {
+	KlassA a;
+	KlassB b;
+
+	@Inject
+	KlassC(KlassA a, KlassB b) {
+		this.a = a;
+		this.b = b;
+	}
+	public String toString() { 
+		return super.toString() 
+			+ " a=" + a 
+			+ " b=" + b; 
+	}
+}
+```
+
+Guice can now provide an `Injector` that is effectively a factory; Guice uses modules (abstract base class `AbstractModule`) to manage object scopes.
+It uses reflection to figure out how to instantiate the requested class or interface.
+
+```java
+Injector injector = Guice.createInjector(new AbstractModule(){});
+KlassB b = injector.getInstance(KlassB.class);
+KlassC c = injector.getInstance(KlassC.class);
+```
+
+Looking carefully, there is however one major difference to manual instantiation above: `b` and `c` will point to different instances of `KlassA`, since Guice will instantiate new objects where needed.
+Thus, if we want to replicate the above behavior, we need to mark `KlassA` a singleton within the module:
+
+```java
+@Singleton class KlassA {}
+```
+
+Guice will then re-use the same instance where needed.
+For completeness, Guice needs to be configured for interfaces:
+
+```java
+interface Itf {}
+class KlassC implements Itf { /* ... */ }
+
+Injector injector = Guice.createInjector(new AbstractModule() {
+	@Override
+	protected void configure() {
+		bind(Itf.class).to(KlassC.class);
+	}
+});
+```
+
+An exhaustive introduction to Guice would go beyond the scope of this class.
+However, the above should give you an idea how DI can be used to  reconfigure software for different environments (dev, staging, testing) by reconfiguring the module context to use mocking or restricted services as needed.
 
 <p style="text-align: right">&#8718;</p>

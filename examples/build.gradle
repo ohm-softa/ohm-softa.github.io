@@ -1,6 +1,5 @@
 plugins {
     id "java"
-    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 group 'ohm.softa'
@@ -19,7 +18,14 @@ dependencies {
     implementation("javax.xml.bind:jaxb-api:2.3.1")
     implementation("com.sun.xml.bind:jaxb-core:2.3.0")
     implementation("com.sun.xml.bind:jaxb-impl:2.3.1")
+
+    implementation 'jakarta.inject:jakarta.inject-api:2.0.1'
+    implementation 'com.google.inject:guice:7.0.0'
+
     runtimeOnly("org.eclipse.persistence:org.eclipse.persistence.moxy:2.7.3")
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
     implementation("com.google.code.gson:gson:${googleGsonVersion}")
     implementation("com.sparkjava:spark-core:${sparkJavaVersion}")
