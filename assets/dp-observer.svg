@@ -10,7 +10,7 @@ abstract class Observable {
 }
 
 note left of Observable::notifyObservers
-	for o in obsercers:
+	for o in observers:
 		o.update(this, payload)
 end note
 
