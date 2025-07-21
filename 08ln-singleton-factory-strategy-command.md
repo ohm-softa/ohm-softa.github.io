@@ -145,7 +145,7 @@ In a long interview on [SE-Radio](https://www.se-radio.net/2014/11/episode-215-g
 > Right? 
 > **So to me, it’s one of the things which should be voted off the Island: Singleton.**
 
-Ij many cases, _Dependency Injection_ is the right pattern, if "wiring" of objects was the reason to use singletons in the first place.
+In many cases, _Dependency Injection_ is the right pattern, if "wiring" of objects was the reason to use singletons in the first place.
 
 
 ## Examples
