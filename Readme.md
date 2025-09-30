@@ -5,24 +5,18 @@ _Required class for [CS majors](https://www.th-nuernberg.de/fakultaeten/in/studi
 
 ## Class Schedule
 
-**Lecture**: Mondays at **9.45a** in HW.307, starting Mar 24: Class, mostly live coding (interaction appreciated :-).
+**Lecture**: Mondays at **9.45a** in SP.467, starting Oct 6: Class, mostly live coding (interaction appreciated :-).
 
-**Tutorials**: We'll work on the assignments based on the preceding week's lecture, so bring your laptop! Tutorials start Mar 25.
+**Tutorials**: Mondays at *11.30a* in SP.467, starting Oct 6. We'll work on the assignments based on the preceding week's lecture, so bring your laptop!
 
-- Tuesdays at *9.45a* in SP.467 (Riedhammer & Tallowitz)
-- Tuesdays at *2p* in SP.467/468 (Braun & Tallowitz)
 
-**Announcements and Discussions:** Teams, enrollment key: `b1f92iq`
+**Announcements and Discussions:** Teams, enrollment key: `7cfy113`
 
 _Note: Materials will be in English, the lectures/tutorials will be taught in German; the written exam will be German (you may answer in English)._
 
-### No class on the following days (**updated: Apr 28**)
+### No class on the following days
 
-- Apr 21+22 (Easter)
-- May 6 (DFG site visit)
-- Jun 2 (Berufungsverfahren IN-2021-01)
-- Jun 9+10 (Pentecost)
-- Jun 16+17
+_tbd_
 
 
 ## Class and Credits (_Leistungsnachweis_)
