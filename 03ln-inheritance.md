@@ -373,6 +373,7 @@ As you can see, interfaces with default methods allow for a very modular and fle
 
 
 # The Diamond Problem
+<!-- > aka: deadly diamond of death  (ˊ☉_☉ˋ) -->
 
 <https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem>
 
@@ -417,7 +418,7 @@ class Bottom implements Left, Right {
 }
 ```
 
-The diamond problem describes a name conflict that arises from a class hierarchy, where two implemented classes have the same name.
+The diamond problem describes a name conflict that arises from a class hierarchy, where two implemented methods have the same name.
 In our example, the interfaces `Left` and `Right` add default (different) implementations for `method()`.
 Use `super.<method>` to access the implementation of a **base class** (here: none given), but use `<Interface>.super.<method>` to access default methods.
 
